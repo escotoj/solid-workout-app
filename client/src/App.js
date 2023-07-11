@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import {
+import { Box,
   Typography,
   TextField,
   Button,
@@ -73,13 +73,17 @@ const App = () => {
         >
           Log
         </Button>
-        
       </form>
-      <FormGroup>
-        <FormControlLabel control={<Checkbox defaultChecked />} label="Cardio" />
-        <FormControlLabel control={<Checkbox />} label="Weights" />
-        <FormControlLabel control={<Checkbox />} label="Stretching" />
-      </FormGroup>
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <FormGroup>
+          <FormControlLabel
+            control={<Checkbox defaultChecked />}
+            label="Cardio"
+          />
+          <FormControlLabel control={<Checkbox />} label="Weights" />
+          <FormControlLabel control={<Checkbox />} label="Stretching" />
+        </FormGroup>
+      </Box>
       {submittedValue && (
         <Paper className={classes.submittedValue}>
           <Typography variant="h6" component="h2" gutterBottom>
@@ -89,7 +93,6 @@ const App = () => {
         </Paper>
       )}
     </div>
-    
   );
 };
 
