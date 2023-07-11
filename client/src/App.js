@@ -97,3 +97,39 @@ const App = () => {
 };
 
 export default App;
+
+// API for musclce
+
+// const [workout, setWorkout] = useState([]);
+// const [todoInput, setTodoInput] = useState("");
+
+// useEffect(() => {
+//   console.log("inside useEffect");
+//   fetch("https://api.api-ninjas.com/v1/exercises?muscle=")
+//     .then((res) => res.json())
+//     .then((data) => {
+//       setWorkout(data.workout);
+//     });
+// }, []);
+
+// console.log("I am rendering");
+
+// const handleAddTodo = () => {
+//   if (todoInput.trim() !== "") {
+//     setWorkout([...workout, todoInput]);
+//     setTodoInput("");
+//   }
+// };
+// var muscle = 'biceps'
+// $.ajax({
+//     method: 'GET',
+//     url: 'https://api.api-ninjas.com/v1/exercises?muscle=' + muscle,
+//     headers: { 'X-Api-Key': 'YOUR_API_KEY'},
+//     contentType: 'application/json',
+//     success: function(result) {
+//         console.log(result);
+//     },
+//     error: function ajaxError(jqXHR) {
+//         console.error('Error: ', jqXHR.responseText);
+//     }
+// });
