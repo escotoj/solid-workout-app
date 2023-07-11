@@ -1,17 +1,25 @@
-import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { Typography, TextField, Button, Paper } from '@material-ui/core';
-import Header from './components/Header'
+import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import {
+  Typography,
+  TextField,
+  Button,
+  Paper,
+  FormGroup,
+  FormControlLabel,
+  Checkbox,
+} from "@material-ui/core";
+import Header from "./components/Header";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    textAlign: 'center',
+    textAlign: "center",
     padding: theme.spacing(3),
   },
   form: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     marginBottom: theme.spacing(2),
   },
   input: {
@@ -27,13 +35,13 @@ const useStyles = makeStyles((theme) => ({
 
 const App = () => {
   const classes = useStyles();
-  const [inputValue, setInputValue] = useState('');
-  const [submittedValue, setSubmittedValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
+  const [submittedValue, setSubmittedValue] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmittedValue(inputValue);
-    setInputValue('');
+    setInputValue("");
   };
 
   const handleInputChange = (e) => {
@@ -46,6 +54,7 @@ const App = () => {
         Solid Workout App
       </Typography>
       <Header />
+
       <form className={classes.form} onSubmit={handleSubmit}>
         <TextField
           className={classes.input}
@@ -54,25 +63,33 @@ const App = () => {
           value={inputValue}
           onChange={handleInputChange}
         />
+
         <Button
-            className={classes.submitButton}
-            variant="contained"
-            color="success"
-            type="submit"
-            sx={{ backgroundColor: 'black' }}
+          className={classes.submitButton}
+          variant="contained"
+          color="success"
+          type="submit"
+          sx={{ backgroundColor: "black" }}
         >
           Log
         </Button>
+        
       </form>
+      <FormGroup>
+        <FormControlLabel control={<Checkbox defaultChecked />} label="Cardio" />
+        <FormControlLabel control={<Checkbox />} label="Weights" />
+        <FormControlLabel control={<Checkbox />} label="Stretching" />
+      </FormGroup>
       {submittedValue && (
         <Paper className={classes.submittedValue}>
-        <Typography variant="h6" component="h2" gutterBottom>
-          Workout:
-        </Typography>
-        <Typography variant="body1">{submittedValue}</Typography>
-      </Paper>
+          <Typography variant="h6" component="h2" gutterBottom>
+            Workout:
+          </Typography>
+          <Typography variant="body1">{submittedValue}</Typography>
+        </Paper>
       )}
     </div>
+    
   );
 };
 
