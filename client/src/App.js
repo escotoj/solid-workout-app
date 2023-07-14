@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Box,
   Typography,
@@ -10,6 +10,7 @@ import { Box,
   Checkbox,
 } from "@material-ui/core";
 import Header from "./components/Header";
+import Workouts from "./pages/Workouts";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,6 +38,7 @@ const App = () => {
   const classes = useStyles();
   const [inputValue, setInputValue] = useState("");
   const [submittedValue, setSubmittedValue] = useState("");
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -73,6 +75,8 @@ const App = () => {
         >
           Log
         </Button>
+
+        
       </form>
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
         <FormGroup>
@@ -92,6 +96,8 @@ const App = () => {
           <Typography variant="body1">{submittedValue}</Typography>
         </Paper>
       )}
+
+      <Workouts />
     </div>
   );
 };
