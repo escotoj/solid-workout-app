@@ -8,7 +8,7 @@ const Workout = () => {
   useEffect(() => {
     if (submitted) {
       console.log("inside useEffect");
-fetch(`https://api.api-ninjas.com/v1/exercises?muscle=${workoutInput}`, {
+fetch('https://api.api-ninjas.com/v1/exercises?muscle=' + workoutInput, {
   headers: {
     "X-Api-Key": "aNt6yjMoFkLXGlw/1IEuiw==mJbbhiQt0Znr1ixr" 
 
@@ -27,7 +27,7 @@ fetch(`https://api.api-ninjas.com/v1/exercises?muscle=${workoutInput}`, {
   const handleAddWorkout = () => {
     if (workoutInput.trim() !== "") {
       setWorkouts([]);
-      setWorkoutInput("");
+      setWorkoutInput(workoutInput);
       setSubmitted(true);
     }
   };
@@ -52,6 +52,7 @@ fetch(`https://api.api-ninjas.com/v1/exercises?muscle=${workoutInput}`, {
             {workouts.map((workout, index) => (
               <li key={index}>
                 <p>{workout.name}</p>
+                <p>{workout.muscle}</p>
               </li>
             ))}
           </ul>
