@@ -5,58 +5,82 @@ const Workout = () => {
   const [workoutInput, setWorkoutInput] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
+  const [dataLoaded, setDataLoaded] = useState(false);
+
   useEffect(() => {
     if (submitted) {
       console.log("inside useEffect");
-fetch('https://api.api-ninjas.com/v1/exercises?muscle=' + workoutInput, {
-  headers: {
-    "X-Api-Key": "aNt6yjMoFkLXGlw/1IEuiw==mJbbhiQt0Znr1ixr" 
-
+      fetch(`https://api.api-ninjas.com/v1/exercises?muscle=${workoutInput}`, {
+        headers: {
+          "X-Api-Key": "aNt6yjMoFkLXGlw/1IEuiw==mJbbhiQt0Znr1ixr"
         }
       })
         .then((res) => res.json())
         .then((data) => {
           setWorkouts(data);
           console.log("DATA", data);
+          setDataLoaded(true);
         });
     }
-  }, [submitted]);
+  }, [submitted, workoutInput]);
 
   console.log("I am rendering");
 
   const handleAddWorkout = () => {
     if (workoutInput.trim() !== "") {
       setWorkouts([]);
+      setSubmitted(false); // Reset the submitted state to falsea
       setWorkoutInput(workoutInput);
-      setSubmitted(true);
+      setSubmitted(true); // Set the submitted state to true after setting the workoutInput
+      setDataLoaded(false);
     }
   };
+
+  const handleNewSearch = () => {
+    setWorkoutInput("");
+    setSubmitted(false);
+    setDataLoaded(false);
+  };
+
 
   return (
     <div className="todoCon">
       <h1>Search For Workouts</h1>
-      <input
-        type="text"
-        onChange={(event) => setWorkoutInput(event.target.value)}
-        value={workoutInput}
-        placeholder="Enter A Workout"
-      />
-      <button className="btn" onClick={handleAddWorkout}>
-        Add Workout
-      </button>
+      {!dataLoaded && ( // Only render input and button when data is not loaded
+        <>
+          <input
+            type="text"
+            onChange={(event) => setWorkoutInput(event.target.value)}
+            value={workoutInput}
+            placeholder="Enter A Workout"
+          />
+          <button className="btn" onClick={handleAddWorkout}>
+            Add Workout
+          </button>
+        </>
+      )}
       {submitted && workouts.length === 0 ? (
         <p>No Workouts to Display</p>
       ) : (
         submitted && (
-          <ul>
-            {workouts.map((workout, index) => (
-              <li key={index}>
-                <p>{workout.name}</p>
-                <p>{workout.muscle}</p>
-              </li>
-            ))}
-          </ul>
-        )
+          <>
+            <ul>
+              {workouts.map((workout, index) => (
+                <li key={index}>
+                  <p>{workout.name}</p>
+                  <p>{workout.muscle}</p>
+                </li>
+              ))}
+            </ul>
+            {dataLoaded && ( // Only render message when data is loaded
+              <>
+              <button className="btn" onClick={handleNewSearch}>
+                New Search
+              </button>
+            </>
+          )}
+        </>
+      )
       )}
     </div>
   );
