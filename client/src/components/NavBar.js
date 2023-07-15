@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-
+import { Link } from 'react-router-dom'
 
 export default function ButtonAppBar() {
   return (
@@ -22,9 +22,12 @@ export default function ButtonAppBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Button color="inherit">Login</Button>
+          {/* <Button color="inherit" component={Link} to="/login">Login</Button> */}
+          <Button color="inherit">Sign Up</Button>
+          <Button color="inherit" component={Link} to="/workouts">workouts</Button>
           <Button color="inherit">Gains</Button>
           <Button color="inherit">Feed</Button>
+          <Button color="inherit" component={Link} to="/log">Log</Button>
         </Toolbar>
       </AppBar>
     </Box>

@@ -1,4 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { Box,
+  Typography,
+  TextField,
+  Button,
+  Paper,
+  FormGroup,
+  FormControlLabel,
+  Checkbox,
+} from "@material-ui/core";
 
 const Workout = () => {
   const [workouts, setWorkouts] = useState([]);
@@ -45,7 +54,12 @@ const Workout = () => {
 
   return (
     <div className="todoCon">
-      <h1>Search For Workouts</h1>
+      <Typography variant="h4" component="h1" gutterBottom>
+        Search
+      </Typography>
+      <Typography variant="h6" component="h1" gutterBottom>
+        This page is dedicated to API calls that render workouts based in specific muscles that one wishes to target (forearm, chest, calves, ect. )
+      </Typography>
       {!dataLoaded && ( // Only render input and button when data is not loaded
         <>
           <input

@@ -29,7 +29,7 @@ GitHub: [escotoj](https://github.com/escotoj)
 
 ## TODO 
 
-- create feeds page
-- download express and mongoose and all that 
-- feed aspect is accounted for but personal page 
-- 
+- create feeds page that will display the workouts like a blog.
+- Workouts Page - API can be made needs its own page. 
+- need to set up, the entire user model and workout models and link to the schemas.
+- need to style the workout models with MUI
