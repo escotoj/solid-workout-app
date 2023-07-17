@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Box,
   Typography,
@@ -9,10 +9,6 @@ import { Box,
   FormControlLabel,
   Checkbox,
 } from "@material-ui/core";
-
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-// import Header from "./components/Header";
-// import Workouts from "./pages/Workouts";
 
 const useStyles = makeStyles((theme) => ({
   root: {
