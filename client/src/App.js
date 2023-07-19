@@ -4,7 +4,7 @@ import { Box, Typography
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
-import Workouts from "./pages/Workouts";
+import Exercises from "./pages/Exercises";
 import Log from "./pages/Log";
 
 
@@ -28,7 +28,7 @@ function App() {
 
       <Route path="/" element={<CodeDisplay />} />
 
-          <Route path="/workouts" element={<Workouts />} />          
+          <Route path="/exercises" element={<Exercises />} />          
           <Route path="/log" element={<Log />} />
 
         </Routes>

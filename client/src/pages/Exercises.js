@@ -9,9 +9,9 @@ import { Box,
   Checkbox,
 } from "@material-ui/core";
 
-const Workout = () => {
-  const [workouts, setWorkouts] = useState([]);
-  const [workoutInput, setWorkoutInput] = useState("");
+const Exercise = () => {
+  const [exercises, setExercises] = useState([]);
+  const [exerciseInput, setExerciseInput] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
   const [dataLoaded, setDataLoaded] = useState(false);
@@ -19,34 +19,34 @@ const Workout = () => {
   useEffect(() => {
     if (submitted) {
       console.log("inside useEffect");
-      fetch(`https://api.api-ninjas.com/v1/exercises?muscle=${workoutInput}`, {
+      fetch(`https://api.api-ninjas.com/v1/exercises?muscle=${exerciseInput}`, {
         headers: {
           "X-Api-Key": "aNt6yjMoFkLXGlw/1IEuiw==mJbbhiQt0Znr1ixr"
         }
       })
         .then((res) => res.json())
         .then((data) => {
-          setWorkouts(data);
+          setExercises(data);
           console.log("DATA", data);
           setDataLoaded(true);
         });
     }
-  }, [submitted, workoutInput]);
+  }, [submitted, exerciseInput]);
 
   console.log("I am rendering");
 
-  const handleAddWorkout = () => {
-    if (workoutInput.trim() !== "") {
-      setWorkouts([]);
+  const handleAddExercise = () => {
+    if (exerciseInput.trim() !== "") {
+      setExercises([]);
       setSubmitted(false); // Reset the submitted state to falsea
-      setWorkoutInput(workoutInput);
-      setSubmitted(true); // Set the submitted state to true after setting the workoutInput
+      setExerciseInput(exerciseInput);
+      setSubmitted(true); // Set the submitted state to true after setting the exerciseInput
       setDataLoaded(false);
     }
   };
 
   const handleNewSearch = () => {
-    setWorkoutInput("");
+    setExerciseInput("");
     setSubmitted(false);
     setDataLoaded(false);
   };
@@ -58,31 +58,31 @@ const Workout = () => {
         Search
       </Typography>
       <Typography variant="h6" component="h1" gutterBottom>
-        This page is dedicated to API calls that render workouts based in specific muscles that one wishes to target (forearm, chest, calves, ect. )
+        This page is dedicated to API calls that render exercises based in specific muscles that one wishes to target (forearm, chest, calves, ect. )
       </Typography>
       {!dataLoaded && ( // Only render input and button when data is not loaded
         <>
           <input
             type="text"
-            onChange={(event) => setWorkoutInput(event.target.value)}
-            value={workoutInput}
-            placeholder="Enter A Workout"
+            onChange={(event) => setExerciseInput(event.target.value)}
+            value={exerciseInput}
+            placeholder="Enter a muscle to exercise"
           />
-          <button className="btn" onClick={handleAddWorkout}>
-            Add Workout
+          <button className="btn" onClick={handleAddExercise}>
+            Add exercise
           </button>
         </>
       )}
-      {submitted && workouts.length === 0 ? (
-        <p>No Workouts to Display</p>
+      {submitted && exercises.length === 0 ? (
+        <p>No exercises to Display</p>
       ) : (
         submitted && (
           <>
             <ul>
-              {workouts.map((workout, index) => (
+              {exercises.map((exercise, index) => (
                 <li key={index}>
-                  <p>{workout.name}</p>
-                  <p>{workout.muscle}</p>
+                  <p>{exercise.name}</p>
+                  <p>{exercise.muscle}</p>
                 </li>
               ))}
             </ul>
@@ -100,12 +100,12 @@ const Workout = () => {
   );
 };
 
-export default Workout;
+export default Exercise;
 
 
 
 
 
-// fetch(`https://api.api-ninjas.com/v1/exercises?muscle=${workoutInput}`, {
+// fetch(`https://api.api-ninjas.com/v1/exercises?muscle=${exerciseInput}`, {
 //   headers: {
 //     "X-Api-Key": "aNt6yjMoFkLXGlw/1IEuiw==mJbbhiQt0Znr1ixr" 
