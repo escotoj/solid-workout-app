@@ -43,7 +43,7 @@ REMOVE_WORKOUT - WORKS
 
 ## GET_TODO 
 
-- 
+- ADD API that renders gym photos with unsplash at loggin and sign up. 
 - create feeds page that will display the workouts like a blog.
 - need to set up, the entire user model and workout models and link to the schemas.
 - need to style the workout models with MUI

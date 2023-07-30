@@ -23,10 +23,10 @@ export default function ButtonAppBar() {
             <MenuIcon />
           </IconButton>
           {/* <Button color="inherit" component={Link} to="/login">Login</Button> */}
-          <Button color="inherit">Sign Up</Button>
+          {/* <Button color="inherit">Sign Up</Button> */}
+          <Button color="inherit" component={Link} to="/login">Login</Button>
           <Button color="inherit" component={Link} to="/exercises">Exercises</Button>
           <Button color="inherit">Gains</Button>
-          <Button color="inherit">Feed</Button>
           <Button color="inherit" component={Link} to="/log">Log</Button>
         </Toolbar>
       </AppBar>
