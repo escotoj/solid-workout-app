@@ -42,7 +42,7 @@ export const ADD_WORKOUT = gql`
   }
 `;
 
-// update card requires the card's ID and the new information to be updated
+
 export const UPDATE_WORKOUT = gql`
   mutation updateWorkout($workoutId: ID!, $details: String, $title: String, $date: String, $notes: String) {
     updateWorkout(workoutId: $workoutId, details: $details, title: $title, date: $date, notes: $notes) {
@@ -55,12 +55,12 @@ export const UPDATE_WORKOUT = gql`
   }
 `;
 
-// remove card requires the card's ID
-export const REMOVE_CARD = gql`
-  mutation removeCard($cardId: ID!) {
-    removeCard(cardId: $cardId) {
+
+export const REMOVE_WORKOUT = gql`
+  mutation removeWorkout($workoutId: ID!) {
+    removeWorkout(workoutId: $workoutId) {
       _id
-      cards {
+      workouts {
         _id
       }
     }
