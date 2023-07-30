@@ -55,7 +55,7 @@ const resolvers = {
 
       return { token, user };
     },
-    addWorkout: async (root, { details, title, date}, context) => {
+    addWorkout: async (root, { details, title, date, notes }, context) => {
       try {
         console.log("CREATE_workout");
       if (context.user){

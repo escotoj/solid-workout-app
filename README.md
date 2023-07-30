@@ -27,13 +27,31 @@ Email: j.escoto14@gmail.com
 GitHub: [escotoj](https://github.com/escotoj)
 
 
-## TODO 
+## ROUTES
+- QUERY_ME - WORKS
 
-- add link to header to take you back to '/'
-- work on the user models for longin and sing up
+LOGIN - WORKS
+ADD_USER - WORKS
+ADD_WORKOUT - WORKS
+
+
+SINGLE_WORKOUT - WORKS
+Update_WORKOUT - WORKS 
+REMOVE_WORKOUT - WORKS
+
+
+
+## GET_TODO 
+
+- 
 - create feeds page that will display the workouts like a blog.
-- Workouts Page - API can be made needs its own page. 
 - need to set up, the entire user model and workout models and link to the schemas.
 - need to style the workout models with MUI
 
+
+## GOT_TO_COMPLETE
+
+- add link to header to take you back to '/'
+- work on the user models for longin and sing up
+- Workouts Page - API can be made needs its own page. 
 - delete comment and just keep notes. 

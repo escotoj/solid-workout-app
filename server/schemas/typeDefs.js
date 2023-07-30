@@ -13,7 +13,7 @@ type Workout {
   title: String!
   date: String
   details: String!
-  notes: String!
+  notes: String
 }
 
 
@@ -31,7 +31,7 @@ type Query {
 type Mutation {
   addUser(username: String!, email: String!, password: String!): Auth
   login(email: String!, password: String!): Auth
-  addWorkout(details: String!, title: String!, date: String): Workout
+  addWorkout(details: String!, title: String!, date: String, notes: String): Workout
   removeWorkout(workoutId: ID!): Workout
   updateUser(username: String, email: String, password: String): User
   updateWorkout(workoutId: ID!, details: String, title: String, date: String, notes: String): Workout
