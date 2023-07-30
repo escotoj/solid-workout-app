@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Box,
+import { makeStyles } from "@material-ui/core/styles";
+import {
+  Box,
   Typography,
   TextField,
   Button,
@@ -9,38 +11,60 @@ import { Box,
   Checkbox,
 } from "@material-ui/core";
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    textAlign: "center",
+    padding: theme.spacing(3),
+  },
+  form: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: theme.spacing(2),
+  },
+  input: {
+    marginRight: theme.spacing(2),
+  },
+  submitButton: {
+    marginLeft: theme.spacing(2),
+  },
+  submittedValue: {
+    marginTop: theme.spacing(2),
+  },
+}));
+
 const Exercise = () => {
+  const classes = useStyles();
   const [exercises, setExercises] = useState([]);
   const [exerciseInput, setExerciseInput] = useState("");
   const [submitted, setSubmitted] = useState(false);
-
   const [dataLoaded, setDataLoaded] = useState(false);
 
   useEffect(() => {
     if (submitted) {
-      console.log("inside useEffect");
-      fetch(`https://api.api-ninjas.com/v1/exercises?muscle=${exerciseInput}`, {
-        headers: {
-          "X-Api-Key": "aNt6yjMoFkLXGlw/1IEuiw==mJbbhiQt0Znr1ixr"
-        }
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          setExercises(data);
-          console.log("DATA", data);
-          setDataLoaded(true);
-        });
+      fetchExercises();
     }
   }, [submitted, exerciseInput]);
 
-  console.log("I am rendering");
+  const fetchExercises = () => {
+    fetch(`https://api.api-ninjas.com/v1/exercises?muscle=${exerciseInput}`, {
+      headers: {
+        "X-Api-Key": "aNt6yjMoFkLXGlw/1IEuiw==mJbbhiQt0Znr1ixr",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setExercises(data);
+        setDataLoaded(true);
+      });
+  };
 
   const handleAddExercise = () => {
     if (exerciseInput.trim() !== "") {
       setExercises([]);
-      setSubmitted(false); // Reset the submitted state to falsea
+      setSubmitted(false);
       setExerciseInput(exerciseInput);
-      setSubmitted(true); // Set the submitted state to true after setting the exerciseInput
+      setSubmitted(true);
       setDataLoaded(false);
     }
   };
@@ -51,61 +75,63 @@ const Exercise = () => {
     setDataLoaded(false);
   };
 
-
   return (
-    <div className="todoCon">
+    <div className={classes.root}>
       <Typography variant="h4" component="h1" gutterBottom>
         Search
       </Typography>
       <Typography variant="h6" component="h1" gutterBottom>
-        This page is dedicated to API calls that render exercises based in specific muscles that one wishes to target (forearm, chest, calves, ect. )
+        This page is dedicated to API calls that render exercises based on specific muscles that one wishes to target (forearm, chest, calves, etc.)
       </Typography>
-      {!dataLoaded && ( // Only render input and button when data is not loaded
+      {!dataLoaded && (
         <>
-          <input
-            type="text"
-            onChange={(event) => setExerciseInput(event.target.value)}
+          <TextField
+            className={classes.input}
+            variant="outlined"
+            label="Search by Muscle"
             value={exerciseInput}
-            placeholder="Enter a muscle to exercise"
+            onChange={(event) => setExerciseInput(event.target.value)}
           />
-          <button className="btn" onClick={handleAddExercise}>
+          <Button
+            className={classes.submitButton}
+            variant="contained"
+            color="primary"
+            onClick={handleAddExercise}
+          >
             Add exercise
-          </button>
+          </Button>
         </>
       )}
       {submitted && exercises.length === 0 ? (
-        <p>No exercises to Display</p>
+        <Typography> No exercises to Display </Typography>
       ) : (
         submitted && (
           <>
             <ul>
               {exercises.map((exercise, index) => (
                 <li key={index}>
-                  <p>{exercise.name}</p>
-                  <p>{exercise.muscle}</p>
+                  <Typography>{exercise.name}</Typography>
+                  <Typography>{exercise.muscle}</Typography>
                 </li>
               ))}
             </ul>
-            {dataLoaded && ( // Only render message when data is loaded
+            {dataLoaded && (
               <>
-              <button className="btn" onClick={handleNewSearch}>
-                New Search
-              </button>
-            </>
-          )}
-        </>
-      )
+                <Button
+                  className={classes.submitButton}
+                  variant="contained"
+                  color="primary"
+                  onClick={handleNewSearch}
+                >
+                  New Search
+                </Button>
+              </>
+            )}
+          </>
+        )
       )}
     </div>
   );
 };
 
 export default Exercise;
-
-
-
-
-
-// fetch(`https://api.api-ninjas.com/v1/exercises?muscle=${exerciseInput}`, {
-//   headers: {
-//     "X-Api-Key": "aNt6yjMoFkLXGlw/1IEuiw==mJbbhiQt0Znr1ixr" 

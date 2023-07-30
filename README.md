@@ -35,3 +35,5 @@ GitHub: [escotoj](https://github.com/escotoj)
 - Workouts Page - API can be made needs its own page. 
 - need to set up, the entire user model and workout models and link to the schemas.
 - need to style the workout models with MUI
+
+- delete comment and just keep notes. 

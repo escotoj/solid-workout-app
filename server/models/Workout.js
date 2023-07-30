@@ -14,12 +14,13 @@ const workoutSchema = new Schema ({
     date: {
         type: Date,
     },
-    picture: {
-        data: Buffer,
-        contentType: String,
+    notes: {
+        type: String,
+        require: false,
+        trim: true,
     }
     
 });
 
 const Workout = model('Workout', workoutSchema);
-module.exports = Card;
+module.exports = Workout;
