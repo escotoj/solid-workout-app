@@ -23,11 +23,9 @@ type Auth {
 }
 
 type Query {
-  users: [User]
-  user(username: String!): User
-  workouts(username: String): [Workout]
-  workout(workoutId: ID!): Workout
   me: User
+  singleWorkout(workoutId: ID!): Workout
+ 
 }
 
 type Mutation {
