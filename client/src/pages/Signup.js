@@ -89,7 +89,15 @@ const Signup = () => {
           }}
         >
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-
+            {/* <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}> */}
+            {/* Add your avatar component here */}
+            {/* <LockOutlinedIcon /> */}
+            {/* <img
+      src="https://picsum.photos/200/300"
+      alt="avatar"
+      style={{ width: 50, height: 50 }}
+    /> */}
+            {/* </Avatar> */}
             <Typography component="h1" variant="h5"
               sx={{
                 fontWeight: "400",

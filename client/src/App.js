@@ -7,6 +7,8 @@ import Exercises from "./pages/Exercises";
 import Log from "./pages/Log";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Gains from "./pages/Gains"
+
 
 function App() {
   const CodeDisplay = () => {
@@ -34,6 +36,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/exercises" element={<Exercises />} />
+          <Route path="/gains" element={<Gains />} />
           <Route path="/log" element={<Log />} />
         </Routes>
       </Router>

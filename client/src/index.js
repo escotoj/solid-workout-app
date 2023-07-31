@@ -6,8 +6,18 @@ import { createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import App from './App';
 
+// const client = new ApolloClient({
+//   uri: 'http://localhost:3001/graphql', // Replace with your GraphQL endpoint URL
+//   cache: new InMemoryCache(),
+//   headers: {
+//     authorization: `Bearer ${auth.getToken()}`
+//   }
+// });
+
+
+// Updated the code above to include the token in the header for auth purpose. specific for logged in user activity**
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: 'http://localhost:3001/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {

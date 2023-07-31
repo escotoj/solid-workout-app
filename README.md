@@ -30,8 +30,8 @@ GitHub: [escotoj](https://github.com/escotoj)
 ## ROUTES
 - QUERY_ME - WORKS
 
-LOGIN - WORKS
-ADD_USER - WORKS
+LOGIN - WORKS - FRONTEND
+ADD_USER - WORKS - FRONTEND
 ADD_WORKOUT - WORKS
 
 
@@ -43,7 +43,9 @@ REMOVE_WORKOUT - WORKS
 
 ## GET_TODO 
 
-- ADD API that renders gym photos with unsplash at loggin and sign up. 
+- do a seed
+- need log out 
+ADD API that renders gym photos with unsplash at loggin and sign up. 
 - create feeds page that will display the workouts like a blog.
 - need to set up, the entire user model and workout models and link to the schemas.
 - need to style the workout models with MUI
@@ -51,6 +53,7 @@ REMOVE_WORKOUT - WORKS
 
 ## GOT_TO_COMPLETE
 
+- signup and log in work
 - add link to header to take you back to '/'
 - work on the user models for longin and sing up
 - Workouts Page - API can be made needs its own page. 

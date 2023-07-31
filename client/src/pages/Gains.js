@@ -1,161 +1,161 @@
 import React, { useState, useEffect } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_ME, QUERY_SINGLE_WORKOUT } from "../utils/queries";
-import { REMOVE_CARD } from "../utils/mutations";
-import { Typography, Paper, Box, TextField, Button, Card } from "@mui/material";
+import { REMOVE_WORKOUT } from "../utils/mutations";
+import { Typography, Paper, Box, TextField, Button, workout } from "@mui/material";
 
-import UpdateCardButton from "../components/UpdateCardButton";
-import RemoveCardButton from "../components/RemoveCardButton";
+// import UpdateWorkoutButton from "../components/UpdateWorkoutButton";
+// import RemoveWorkoutButton from "../components/RemoveWorkoutButton";
 
-import UpdateCardForm from "../components/updateCard";
+// import UpdateWorkoutForm from "../components/updateWorkout";
 
-const MyCard = () => {
-  const [singleCard, setSingleCard] = useState(null);
+const MyWorkout = () => {
+  const [singleWorkout, setSingleWorkout] = useState(null);
 
-  const [cardToUpdate, setCardToUpdate] = useState(null);
-  const [selectedCardId, setSelectedCardId] = useState(null);
+//   const [workoutToUpdate, setWorkoutToUpdate] = useState(null);
+  const [selectedWorkoutId, setSelectedWorkoutId] = useState(null);
   const { loading, error, data } = useQuery(GET_ME);
-  const [userCards, setUserCards] = useState([]);
+  const [userWorkouts, setUserWorkouts] = useState([]);
 
-  const [removeCard] = useMutation(REMOVE_CARD, {
-    refetchQueries: [{ query: GET_ME }],
-  });
+//   const [removeWorkout] = useMutation(REMOVE_WORKOUT, {
+//     refetchQueries: [{ query: GET_ME }],
+//   });
 
   useEffect(() => {
     console.log("Data from GET_ME:", data);
-    if (data?.me.cards) {
-      setUserCards(data.me.cards);
+    if (data?.me.workouts) {
+      setUserWorkouts(data.me.workouts);
     }
   }, [data]);
 
   const {
-    loading: singleCardLoading,
-    error: singleCardError,
-    data: singleCardData,
+    loading: singleWorkoutLoading,
+    error: singleWorkoutError,
+    data: singleWorkoutData,
   } = useQuery(QUERY_SINGLE_WORKOUT, {
-    variables: { cardId: selectedCardId },
-    skip: !selectedCardId,
+    variables: { workoutId: selectedWorkoutId },
+    skip: !selectedWorkoutId,
   });
 
   useEffect(() => {
-    if (singleCardData && singleCardData.singleCard) {
-      setSingleCard(singleCardData.singleCard);
+    if (singleWorkoutData && singleWorkoutData.singleWorkout) {
+      setSingleWorkout(singleWorkoutData.singleWorkout);
     }
-  }, [singleCardData]);
+  }, [singleWorkoutData]);
 
-  console.log(singleCardData);
+  console.log(singleWorkoutData);
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
 
-  const handleRemoveCard = async (cardId) => {
-    console.log(`Attempting to remove card with ID: ${cardId}`);
-    const { data } = await removeCard({ variables: { cardId: cardId } });
+//   const handleRemoveWorkout = async (workoutId) => {
+//     console.log(`Attempting to remove workout with ID: ${workoutId}`);
+//     const { data } = await removeWorkout({ variables: { workoutId: workoutId } });
 
-    console.log(`Mutation response data: `, data);
+//     console.log(`Mutation response data: `, data);
 
-    if (data?.removeCard) {
-      console.log(`Received updated user from server: `, data.removeCard);
-      setUserCards(data.removeCard.cards);
-      window.alert('Successful Delete')
-      window.location.reload();
-      console.log(`Updated userCards state: `, data.removeCard.cards);
-    } else {
-      console.log(`No updated user received from server.`);
-    }
-  };
+//     if (data?.removeWorkout) {
+//       console.log(`Received updated user from server: `, data.removeWorkout);
+//       setUserWorkouts(data.removeWorkout.workouts);
+//       window.alert('Successful Delete')
+//       window.location.reload();
+//       console.log(`Updated userWorkouts state: `, data.removeWorkout.workouts);
+//     } else {
+//       console.log(`No updated user received from server.`);
+//     }
+//   };
 
   return (
     <Box sx={{   display: "flex",
     flexDirection: "column",
     alignItems: "center",
     mt: 6}}>
-      <Typography variant="h4" gutterBottom sx={{mt: 10, textAlign: "center", }} >My Cards</Typography>
+      <Typography variant="h4" gutterBottom sx={{mt: 10, textAlign: "center", }} >My workouts</Typography>
     <Paper
       sx={{width: '60%', margin: 'auto'
       }}
     >
-      <div className="my-card-container">
-        <div className="user-cards">
-          <h2 className="section-title">Cards</h2>
-          {userCards.length === 0 ? (
-            <p className="empty-message">No cards found for this user.</p>
+      <div className="my-workout-container">
+        <div className="user-workouts">
+          <h2 className="section-title">workouts</h2>
+          {userWorkouts.length === 0 ? (
+            <p className="empty-message">No workouts found for this user.</p>
           ) : (
-            <ul className="card-list">
-              {userCards.map((card) => (
+            <ul className="workout-list">
+              {userWorkouts.map((workout) => (
                 <Paper>
-                  <li key={card._id} className="card-item">
-                    <span>{card.title}</span>
+                  <li key={workout._id} className="workout-item">
+                    <span>{workout.title}</span>
                     <Button
                       variant="contained"
                       color="primary"
                       sx={{ mt: 2 }}
-                      onClick={() => setSelectedCardId(card._id)}
+                      onClick={() => setSelectedWorkoutId(workout._id)}
                     >
                       View Details
                     </Button>
-                    <UpdateCardButton
-                      cardId={card._id}
-                      newDetails={card.details}
-                      newTitle={card.title}
-                      newDate={card.date}
-                      newPicture={card.picture}
-                      setCardToUpdate={setCardToUpdate}
+                    {/* <UpdateWorkoutButton
+                      workoutId={workout._id}
+                      newDetails={workout.details}
+                      newTitle={workout.title}
+                      newDate={workout.date}
+                      newPicture={workout.picture}
+                      setWorkoutToUpdate={setWorkoutToUpdate}
                     />
-                    <RemoveCardButton
-                      cardId={card._id}
-                      onRemove={handleRemoveCard}
-                    />
+                    <RemoveWorkoutButton
+                      workoutId={workout._id}
+                      onRemove={handleRemoveWorkout}
+                    /> */}
                   </li>
                 </Paper>
               ))}
             </ul>
           )}
         </div>
-        <div className="single-card">
-          <h2 className="section-title">Selected Card Details</h2>
-          {singleCardLoading
+        <div className="single-workout">
+          <h2 className="section-title">Selected workout Details</h2>
+          {singleWorkoutLoading
             ? "Loading..."
-            : singleCardError
-            ? `Error! ${singleCardError.message}`
-            : singleCard && (
-                <Card sx={{ minWidth: 275, border: '10px double #c2dcf7', 
+            : singleWorkoutError
+            ? `Error! ${singleWorkoutError.message}`
+            : singleWorkout && (
+                <workout sx={{ minWidth: 275, border: '10px double #c2dcf7', 
                 backgroundColor: '#fbe8d6'}}>
-                  <div className="single-card-details">
+                  <div className="single-workout-details">
                     <Typography sx={{ fontSize: 14 }} color="text.secondary">
           Title
         </Typography>
-                    <h2>{singleCard.title}</h2>
+                    <h2>{singleWorkout.title}</h2>
 
                     <Typography sx={{ fontSize: 14 }} color="text.secondary">
           Details
         </Typography>
-                    <p>{singleCard.details}</p>
+                    <p>{singleWorkout.details}</p>
                     <Typography sx={{ fontSize: 14 }} color="text.secondary">
           Author:
         </Typography>
-                    <p>{singleCard.cardAuthor}</p>
+                    <p>{singleWorkout.workoutAuthor}</p>
                     <Box sx={{ mt: 8, textAlign: "end", paddingRight: "20%" }}>
                       
                     </Box>
                   </div>
-                </Card>
+                </workout>
               )}
         </div>
-
-        {cardToUpdate && (
-          <UpdateCardForm
-            cardId={cardToUpdate.cardId}
-            currentDetails={cardToUpdate.currentDetails}
-            currentTitle={cardToUpdate.currentTitle}
-            currentDate={cardToUpdate.currentDate}
-            currentPicture={cardToUpdate.currentPicture}
-            setCardToUpdate={setCardToUpdate}
+{/* 
+        {workoutToUpdate && (
+          <UpdateWorkoutForm
+            workoutId={workoutToUpdate.workoutId}
+            currentDetails={workoutToUpdate.currentDetails}
+            currentTitle={workoutToUpdate.currentTitle}
+            currentDate={workoutToUpdate.currentDate}
+            currentPicture={workoutToUpdate.currentPicture}
+            setWorkoutToUpdate={setWorkoutToUpdate}
           />
-        )}
+        )} */}
       </div>
     </Paper>
     </Box>
   );
 };
 
-export default MyCard;
+export default MyWorkout;
