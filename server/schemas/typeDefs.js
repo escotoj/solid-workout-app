@@ -14,6 +14,7 @@ type Workout {
   date: String
   details: String!
   notes: String
+  workoutAuthor: String!
 }
 
 

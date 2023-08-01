@@ -14,6 +14,11 @@ const workoutSchema = new Schema ({
     date: {
         type: Date,
     },
+    workoutAuthor: {
+        type: String,
+        required: true,
+        trim: true,
+    },
     notes: {
         type: String,
         require: false,

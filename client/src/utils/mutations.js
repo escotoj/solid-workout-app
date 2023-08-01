@@ -38,6 +38,7 @@ export const ADD_WORKOUT = gql`
         title
         date
         details
+        workoutAuthor
         notes
     }
   }
@@ -51,6 +52,7 @@ export const UPDATE_WORKOUT = gql`
         title
         date
         details
+        workoutAuthor
         notes
     }
   }

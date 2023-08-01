@@ -1,0 +1,121 @@
+[ {
+    "title": "Chest Day",
+    "details": "Push Ups and Bench",
+    "_id": "64bacdf81284d46e96bd8bcc",
+    "workoutAuthor": "joe"
+  },
+  {
+    "title": "Leg Dat",
+    "details": "Mile run and squats",
+    "_id": "64bace481284d46e96bd8bcf",
+    "workoutAuthor": "joe"
+  },
+  {
+    "title": "Core Day",
+    "details": "100 sit ups and leg lifts",
+    "_id": "64bace6c1284d46e96bd8bd2",
+    "workoutAuthor": "joe"
+  },
+  {
+    "title": "Bicep Day",
+    "details": "Lots of curls",
+    "_id": "64bacea11284d46e96bd8bd5",
+    "workoutAuthor": "joe"
+  },
+  {
+    "title": "Shoulders",
+    "details": "Lateral raises and shoulder press",
+    "_id": "64bacf041284d46e96bd8bd9",
+    "workoutAuthor": "joe"
+  },
+  {
+    "title": "Off Day",
+    "details": "Focus on recovery, sleep and diet",
+    "_id": "64bacf471284d46e96bd8bdc",
+    "workoutAuthor": "joe"
+  },
+  {
+    "title": "Off Day",
+    "details": "Focus on recovery, sleep and diet",
+    "_id": "64bacf941284d46e96bd8be2",
+    "workoutAuthor": "kevin"
+  },
+  {
+    "title": "Chest Day",
+    "details": "Push Ups and Bench",
+    "_id": "64bacfba1284d46e96bd8be5",
+    "workoutAuthor": "kevin"
+  },
+  {
+    "title": "Congratulations",
+    "details": "I am so proud of you. Keep it up!",
+    "_id": "64bacfe21284d46e96bd8be8",
+    "workoutAuthor": "kevin"
+  },
+  {
+    "title": "Goodbye",
+    "details": "I am really sad to let you know I quit this job!",
+    "_id": "64bad0001284d46e96bd8beb",
+    "workoutAuthor": "kevin"
+  },
+  {
+    "title": "Off Day",
+    "details": "Focus on recovery, sleep and diet",
+    "_id": "64bad04c1284d46e96bd8bf0",
+    "workoutAuthor": "lili"
+  },
+  {
+    "title": "Core Day",
+    "details": "100 sit ups and leg lifts",
+    "_id": "64bad06e1284d46e96bd8bf3",
+    "workoutAuthor": "lili"
+  },
+  {
+    "title": "Off Day",
+    "details": "Focus on recovery, sleep and diet",
+    "_id": "64bad0ec1284d46e96bd8bf7",
+    "workoutAuthor": "peter"
+  },
+  {
+    "title": "Core Day",
+    "details": "100 sit ups and leg lifts",
+    "_id": "64bad1111284d46e96bd8bfa",
+    "workoutAuthor": "peter"
+  },
+  {
+    "title": "Chest Day",
+    "details": "Push Ups and Bench",
+    "_id": "64bad1661284d46e96bd8bfe",
+    "workoutAuthor": "peter"
+  },
+  {
+    "title": "Off Day",
+    "details": "Focus on recovery, sleep and diet",
+    "_id": "64bad16f1284d46e96bd8c01",
+    "workoutAuthor": "jackie"
+  },
+  {
+    "title": "Off Day",
+    "details": "Focus on recovery, sleep and diet",
+    "_id": "64bad1be1284d46e96bd8c05",
+    "workoutAuthor": "Emerald"
+  },
+  {
+    "title": "Core Day",
+    "details": "100 sit ups and leg lifts",
+    "_id": "64bad1e11284d46e96bd8c08",
+    "workoutAuthor": "Emerald"
+  },
+  {
+    "title": "Off Day",
+    "details": "Focus on recovery, sleep and diet",
+    "_id": "64bad2691284d46e96bd8c0f",
+    "workoutAuthor": "Jose"
+  },
+  {
+    "title": "Off Day",
+    "details": "Focus on recovery, sleep and diet",
+    "_id": "64bad2951284d46e96bd8c12",
+    "workoutAuthor": "Jose"
+  }
+]

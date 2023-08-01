@@ -12,6 +12,7 @@ query me {
   date
   details
   notes
+  workoutAuthor
     }
   }
 }
@@ -25,6 +26,7 @@ export const QUERY_SINGLE_WORKOUT = gql`
   title
   date
   details
+  workoutAuthor
   notes
     }
   }

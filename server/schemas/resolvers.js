@@ -3,6 +3,10 @@ const { AuthenticationError } = require("apollo-server-express");
 const { User, Workout } = require("../models/index");
 const { signToken } = require("../utils/auth");
 
+const updateWorkoutAuthors = async (oldUsername, newUsername) => {
+  await Workout.updateMany({ workoutAuthor: oldUsername }, { $set: { workoutAuthor: newUsername } });
+};
+
 
 const resolvers = {
   Query: {
