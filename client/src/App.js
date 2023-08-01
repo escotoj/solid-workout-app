@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography } from "@material-ui/core";
+import { Box, Typography, Container} from "@material-ui/core";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
@@ -28,17 +28,19 @@ function App() {
   };
 
   return (
-    <Box>
+    <Box sx={{ backgroundColor: "#f0f0f0", minHeight: "100vh" }}>
       <Router>
         <Header />
-        <Routes>
-          <Route path="/" element={<CodeDisplay />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/exercises" element={<Exercises />} />
-          <Route path="/gains" element={<Gains />} />
-          <Route path="/log" element={<Log />} />
-        </Routes>
+        <Container maxWidth="sm" sx={{ padding: "1rem" }}>
+          <Routes>
+            <Route path="/" element={<CodeDisplay />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/exercises" element={<Exercises />} />
+            <Route path="/gains" element={<Gains />} />
+            <Route path="/log" element={<Log />} />
+          </Routes>
+        </Container>
       </Router>
     </Box>
   );

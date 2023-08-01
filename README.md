@@ -43,16 +43,20 @@ REMOVE_WORKOUT - WORKS
 
 ## GET_TODO 
 
-- do a seed
+- add notes and date to mutation to triple check seed data and rendering.  
+- style the add_workout page. 
+- style the gains page
 - need log out 
-ADD API that renders gym photos with unsplash at loggin and sign up. 
+- ADD API that renders gym photos with unsplash at loggin and sign up. 
 - create feeds page that will display the workouts like a blog.
-- need to set up, the entire user model and workout models and link to the schemas.
+
 - need to style the workout models with MUI
 
 
 ## GOT_TO_COMPLETE
 
+- need to set up, the entire user model and workout models and link to the schemas.
+- do a seed
 - signup and log in work
 - add link to header to take you back to '/'
 - work on the user models for longin and sing up
