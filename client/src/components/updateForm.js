@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { UPDATE_WORKOUT } from './../utils/mutations';
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material';
 
-const UpdateWorkoutForm = ({ workoutId, currentDetails, currentTitle, handleNavigateToMyCard }) => {
+const UpdateWorkoutForm = ({ workoutId, currentDetails, currentTitle, handleNavigateToMyCard, open, handleClose }) => {
   const [newDetails, setNewDetails] = useState(currentDetails);
   const [newTitle, setNewTitle] = useState(currentTitle);
   const [updateWorkout, { loading: updating, error: updateError }] = useMutation(UPDATE_WORKOUT);
@@ -16,18 +17,21 @@ const UpdateWorkoutForm = ({ workoutId, currentDetails, currentTitle, handleNavi
           details: newDetails,
         } 
       });
-      console.log("Card updated successfully");
-      // handleNavigateToMyCard(); // Call the handleNavigateToMyCard function to navigate to "MyCard" route
-      // window.location.href = '/my-cards';
+      console.log("Workout updated successfully");
       window.location.reload(true)
     } catch (error) {
-      console.error("Error updating card", error);
+      console.error("Error updating Workout", error);
     }
   };
 
+
   return (
     <div>
-      <h2>Edit Workout</h2>
+
+    {/* Dialog (Modal) */}
+    <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth>
+      <DialogTitle>Edit Workout</DialogTitle>
+      <DialogContent>
       <form>
       <div>
           <label htmlFor="title">Title:</label>
@@ -48,8 +52,19 @@ const UpdateWorkoutForm = ({ workoutId, currentDetails, currentTitle, handleNavi
           />
         </div>
       </form>
-      <button onClick={handleSaveUpdate}>Save Update</button>
-    </div>
+      </DialogContent>
+      <DialogActions>
+          <Button onClick={handleClose} color="primary">
+            Cancel
+          </Button>
+          <Button onClick={handleSaveUpdate} variant="contained" color="success">
+            Save Update
+          </Button>
+        </DialogActions>
+    </Dialog>
+  </div>
+
+
   );
 };
 
