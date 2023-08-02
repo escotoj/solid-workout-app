@@ -33,7 +33,7 @@ type Mutation {
   addUser(username: String!, email: String!, password: String!): Auth
   login(email: String!, password: String!): Auth
   addWorkout(details: String!, title: String!, date: String, notes: String): Workout
-  removeWorkout(workoutId: ID!): Workout
+  removeWorkout(workoutId: ID!): User
   updateUser(username: String, email: String, password: String): User
   updateWorkout(workoutId: ID!, details: String, title: String, date: String, notes: String): Workout
 }
