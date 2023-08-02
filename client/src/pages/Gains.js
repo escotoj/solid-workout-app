@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_ME, QUERY_SINGLE_WORKOUT } from "../utils/queries";
-import { REMOVE_WORKOUT } from "../utils/mutations";
+// import { REMOVE_WORKOUT } from "../utils/mutations";
 import {
   Typography,
   Paper,
@@ -11,15 +11,15 @@ import {
   workout,
 } from "@mui/material";
 
-// import UpdateWorkoutButton from "../components/UpdateWorkoutButton";
+import UpdateWorkoutButton from "../components/UpdateWorkoutButton";
 // import RemoveWorkoutButton from "../components/RemoveWorkoutButton";
 
-// import UpdateWorkoutForm from "../components/updateWorkout";
+import UpdateWorkoutForm from "../components/updateForm";
 
 const MyWorkout = () => {
   const [singleWorkout, setSingleWorkout] = useState(null);
 
-  //   const [workoutToUpdate, setWorkoutToUpdate] = useState(null);
+    const [workoutToUpdate, setWorkoutToUpdate] = useState(null);
   const [selectedWorkoutId, setSelectedWorkoutId] = useState(null);
   const { loading, error, data } = useQuery(GET_ME);
   const [userWorkouts, setUserWorkouts] = useState([]);
@@ -127,7 +127,7 @@ const MyWorkout = () => {
                     >
                       View Details
                     </Button>
-                    {/* <UpdateWorkoutButton
+                    <UpdateWorkoutButton
                       workoutId={workout._id}
                       newDetails={workout.details}
                       newTitle={workout.title}
@@ -135,7 +135,7 @@ const MyWorkout = () => {
                       newPicture={workout.picture}
                       setWorkoutToUpdate={setWorkoutToUpdate}
                     />
-                    <RemoveWorkoutButton
+                    {/* <RemoveWorkoutButton
                       workoutId={workout._id}
                       onRemove={handleRemoveWorkout}
                     /> */}
@@ -190,7 +190,7 @@ const MyWorkout = () => {
                   </workout>
                 )}
           </div>
-          {/* 
+          
         {workoutToUpdate && (
           <UpdateWorkoutForm
             workoutId={workoutToUpdate.workoutId}
@@ -200,7 +200,7 @@ const MyWorkout = () => {
             currentPicture={workoutToUpdate.currentPicture}
             setWorkoutToUpdate={setWorkoutToUpdate}
           />
-        )} */}
+        )}
         </div>
       </Paper>
     </Box>
