@@ -2,14 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_ME, QUERY_SINGLE_WORKOUT } from "../utils/queries";
 import { REMOVE_WORKOUT } from "../utils/mutations";
-import {
-  Typography,
-  Paper,
-  Box,
-  TextField,
-  Button,
-  workout,
-} from "@mui/material";
+import { Typography, Paper, Box, Button, Card } from "@mui/material";
 
 import UpdateWorkoutButton from "../components/UpdateWorkoutButton";
 import RemoveWorkoutButton from "../components/RemoveWorkoutBtn";
@@ -82,14 +75,10 @@ const MyWorkout = () => {
         mt: 2,
       }}
     >
-      <Typography
-        variant="h4"
-        gutterBottom
-        sx={{ mt: 10, textAlign: "center" }}
-      >
+      <Typography variant="h4" gutterBottom sx={{ mt: 1, textAlign: "center" }}>
         My Gains
       </Typography>
-      <Paper sx={{ width: "80%", margin: "auto", padding: 3 }}>
+      <Paper sx={{ width: "100%", margin: "20px", padding: 1 }}>
         <div>
           <div>
             <Typography
@@ -114,13 +103,17 @@ const MyWorkout = () => {
                       alignItems: "center",
                       justifyContent: "space-between",
                       mb: 2,
-                      mx: 1,
+                      padding: "10px", // Add some padding for better spacing
+                      flexDirection: "column", // Stack the items vertically in mobile view
+                      "@media (min-width: 375px)": {
+                        flexDirection: "row", // Switch back to row layout on larger screens (portrait mode)
+                      },
                     }}
                   >
-                    <div style={{ display: "flex", alignItems: "center" }}>
+                    <Box style={{ display: "block" }}>
                       <Typography>{workout.title}</Typography>
-                      <span style={{ marginLeft: "10px" }}>{workout.date}</span>
-                    </div>
+                      <Typography>{workout.title}</Typography>
+                    </Box>
 
                     <Button
                       variant="contained"
@@ -129,7 +122,7 @@ const MyWorkout = () => {
                     >
                       View Details
                     </Button>
-                    <UpdateWorkoutButton
+                    {/* <UpdateWorkoutButton
                       workoutId={workout._id}
                       newDetails={workout.details}
                       newTitle={workout.title}
@@ -140,7 +133,7 @@ const MyWorkout = () => {
                     <RemoveWorkoutButton
                       workoutId={workout._id}
                       onRemove={handleRemoveWorkout}
-                    />
+                    /> */}
                   </Paper>
                 ))}
               </ul>
@@ -164,12 +157,17 @@ const MyWorkout = () => {
               : singleWorkoutError
               ? `Error! ${singleWorkoutError.message}`
               : singleWorkout && (
-                  <workout
-                    sx={{
-                      minWidth: 275,
-                      border: "10px double #c2dcf7",
-                      backgroundColor: "#fbe8d6",
-                    }}
+                  <Card
+                  sx={{
+                    maxWidth: "500px",
+                    border: "10px double #c2dcf7",
+                    backgroundColor: "#fbe8d6",
+                    padding: "5%",
+                    margin: "0 auto", 
+                    "@media (max-width: 390px)": {
+                      padding: "3%", 
+                    },
+                  }}
                   >
                     <div className="single-workout-details">
                       <Typography sx={{ fontSize: 14 }} color="text.secondary">
@@ -188,8 +186,29 @@ const MyWorkout = () => {
                       <Box
                         sx={{ mt: 8, textAlign: "end", paddingRight: "20%" }}
                       ></Box>
+
+                      <Box
+                        style={{ display: "flex", justifyContent: "center" }}
+                      >
+                        <UpdateWorkoutButton
+                          workoutId={singleWorkout._id}
+                          newDetails={singleWorkout.details}
+                          newTitle={singleWorkout.title}
+                          newDate={singleWorkout.date}
+                          newPicture={singleWorkout.picture}
+                          setWorkoutToUpdate={setWorkoutToUpdate}
+                        />
+                      </Box>
+                      <Box
+                      sx={{ mt: 2, display: "flex", justifyContent: "center" }}
+                      >
+                        <RemoveWorkoutButton
+                          workoutId={singleWorkout._id}
+                          onRemove={handleRemoveWorkout}
+                        />
+                      </Box>
                     </div>
-                  </workout>
+                  </Card>
                 )}
           </div>
 

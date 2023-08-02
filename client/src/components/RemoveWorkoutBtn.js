@@ -5,7 +5,7 @@ import { Button } from "@mui/material";
 function RemoveWorkoutButton({ workoutId, onRemove }) {
   return (
     <Button style={{ backgroundColor: 'pink' }} onClick={() => onRemove(workoutId)}>
-      Remove Card
+      Remove Workout
     </Button >
   );
 }

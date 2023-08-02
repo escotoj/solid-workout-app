@@ -13,7 +13,7 @@ const UpdateWorkoutButton = ({ workoutId, newDetails, newTitle }) => {
   };
 
   const handleNavigateToMyCard = () => {
-    navigate("/my-cards");
+    navigate("/gains");
   };
 
   if (showUpdateForm) {
@@ -33,7 +33,7 @@ const UpdateWorkoutButton = ({ workoutId, newDetails, newTitle }) => {
 
   return (
     <div>
-      <Button onClick={handleClick} variant="contained" color="success">
+      <Button onClick={handleClick} variant="contained" color="success" >
         Update
       </Button>
     </div>
