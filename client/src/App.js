@@ -4,10 +4,13 @@ import { Box, Typography, Container} from "@material-ui/core";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import Exercises from "./pages/Exercises";
-import Log from "./pages/Log";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Gains from "./pages/Gains"
+
+
+import History from "./pages/History"
+import Gains from "./pages/Gains";
+
 
 
 function App() {
@@ -38,7 +41,7 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/exercises" element={<Exercises />} />
             <Route path="/gains" element={<Gains />} />
-            <Route path="/log" element={<Log />} />
+            <Route path="/history" element={<History />} />
           </Routes>
         </Container>
       </Router>

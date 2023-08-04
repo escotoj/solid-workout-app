@@ -60,7 +60,7 @@ const pages = [
 const settings = [
   { label: 'Home', path: '/'},
   { label: 'Gains', path: '/gains' },
-  { label: 'Log', path: '/log' },
+  { label: 'History', path: '/history' },
   { label: 'Exercises', path: '/exercises' },
 ];
 
@@ -103,9 +103,9 @@ export default function ResponsiveAppBar() {
 
   const navigationLinks = isLoggedIn ? [
     { label: 'Home', path: '/' },
-    { label: 'Gains', path: '/gains' },
     { label: 'Exercises', path: '/Exercises' },
-    { label: 'Log', path: '/log' }
+    { label: 'Gains', path: '/gains' },
+    { label: 'History', path: '/history' }
   ] : pages;
 
   return (
