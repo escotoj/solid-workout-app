@@ -107,14 +107,19 @@ const Exercise = () => {
       ) : (
         submitted && (
           <>
-            <ul>
+            <Box>
               {exercises.map((exercise, index) => (
-                <li key={index}>
-                  <Typography>{exercise.name}</Typography>
-                  <Typography>{exercise.muscle}</Typography>
-                </li>
+                <Box key={index} sx={{ marginTop: 12}}>
+                   <Paper>
+         <Typography variant="h6">
+            {exercise.name}
+          </Typography>
+         
+          <Typography sx={{ display: 'flex', marginLeft: 8}}>Target Muscle: {exercise.muscle}</Typography>
+          </Paper>
+                </Box>
               ))}
-            </ul>
+            </Box>
             {dataLoaded && (
               <>
                 <Button
