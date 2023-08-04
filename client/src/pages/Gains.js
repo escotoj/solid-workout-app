@@ -10,6 +10,8 @@ import { Box,
   Checkbox,
 } from "@material-ui/core";
 
+import WorkoutForm from "../components/addWorkout";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     textAlign: "center",
@@ -95,6 +97,8 @@ const Log = () => {
           <Typography variant="body1">{submittedValue}</Typography>
         </Paper>
       )}
+
+      <WorkoutForm/>
       </div>
   );
 };

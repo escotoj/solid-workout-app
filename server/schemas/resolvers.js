@@ -59,11 +59,11 @@ const resolvers = {
 
       return { token, user };
     },
-    addWorkout: async (root, { details, title, date, notes }, context) => {
+    addWorkout: async (root, { details, title, date, notes, workoutAuthor }, context) => {
       try {
         console.log("CREATE_workout");
       if (context.user){
-        const workoutData = { details, title, date, notes };
+        const workoutData = { details, title, date, notes, workoutAuthor };
 
         const workout = await Workout.create(workoutData);
         const workoutObj = workout.toObject();

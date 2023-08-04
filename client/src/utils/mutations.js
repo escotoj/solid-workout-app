@@ -32,8 +32,8 @@ export const UPDATE_USER = gql`
   }
 `;
 export const ADD_WORKOUT = gql`
-  mutation addWorkout($details: String!, $title: String!, $date: String, $notes: String) {
-    addWorkout(details: $details, title: $title, date: $date, notes: $notes) {
+  mutation addWorkout($details: String!, $title: String!, $date: String, $notes: String, $workoutAuthor: String) {
+    addWorkout(details: $details, title: $title, date: $date, notes: $notes, workoutAuthor: $workoutAuthor) {
         _id
         title
         date
