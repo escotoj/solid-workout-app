@@ -51,55 +51,21 @@ const Log = () => {
   };
 
   return (
-    <div className={classes.root}>
-      <Typography variant="h4" component="h1" gutterBottom>
-        Log
+    <Box className={classes.root}>
+      <Typography variant="h4" component="h1">
+        Log Your Gains
       </Typography>
-      <Typography variant="h6" component="h1" gutterBottom>
-        Page set up for users to log their workouts by adding data like Workout name, type, muscle and duration, and description/comments.
-      </Typography>
-      <form className={classes.form} onSubmit={handleSubmit}>
-        <TextField
-          className={classes.input}
-          variant="outlined"
-          label="Log Workout"
-          value={inputValue}
-          onChange={handleInputChange}
-        />
-
-        <Button
-          className={classes.submitButton}
-          variant="contained"
-          color="success"
-          type="submit"
-          sx={{ backgroundColor: "black" }}
-        >
-          Log
-        </Button>
-
-        
-      </form>
-      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-        <FormGroup>
-          <FormControlLabel
-            control={<Checkbox defaultChecked />}
-            label="Cardio"
-          />
-          <FormControlLabel control={<Checkbox />} label="Weights" />
-          <FormControlLabel control={<Checkbox />} label="Stretching" />
-        </FormGroup>
-      </Box>
-      {submittedValue && (
-        <Paper className={classes.submittedValue}>
-          <Typography variant="h6" component="h2" gutterBottom>
-            Workout:
-          </Typography>
-          <Typography variant="body1">{submittedValue}</Typography>
-        </Paper>
-      )}
 
       <WorkoutForm/>
-      </div>
+      
+      <Typography variant="h6" component="h1">
+        Page set up for users to log their workouts by adding data like Workout name, type, muscle and duration, and description/comments.
+
+
+      </Typography>
+
+   
+      </Box>
   );
 };
 

@@ -52,7 +52,8 @@ const WorkoutForm = ({ workoutId }) => {
       setExpirationDate('');
       setFontStyle('Arial');
       console.log(data)
-    //   navigate('/my-workouts');
+      alert('Workout Added');
+            navigate('/history');
     } catch (err) {
       console.error(err);
     }
@@ -79,7 +80,7 @@ const WorkoutForm = ({ workoutId }) => {
     <Container component="main" maxWidth="lg">
       <Box
         sx={{
-          marginTop: '11rem',
+          marginTop: '3rem',
           boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
           borderRadius: '4px',
           display: 'flex',
@@ -102,7 +103,7 @@ const WorkoutForm = ({ workoutId }) => {
                 textShadow: "2px 2px 2px #a7a59e",
               }}
             >
-              Create Workout
+              Add Workout
             </Typography>
           </Grid>
           {Auth.loggedIn() && (
@@ -168,7 +169,7 @@ const WorkoutForm = ({ workoutId }) => {
                 /> */}
               </Grid>
 
-              <Grid item xs={12} sm={6} md={4}> {/* Take full width on small screens */}
+              <Grid item xs={12} sm={6} md={8}> {/* Take full width on small screens */}
               <p
                   className={`m-0 ${
                     characterCount === 280 || error ? 'text-danger' : ''
