@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Box,
-  Typography,
-  TextField,
-  Button,
-  Paper,
-  FormGroup,
-  FormControlLabel,
-  Checkbox,
+  Typography
 } from "@material-ui/core";
 
 import WorkoutForm from "../components/addWorkout";
@@ -57,7 +51,7 @@ const Log = () => {
       </Typography>
 
       <WorkoutForm/>
-      
+
       <Typography variant="h6" component="h1">
         Page set up for users to log their workouts by adding data like Workout name, type, muscle and duration, and description/comments.
 

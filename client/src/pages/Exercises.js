@@ -6,10 +6,9 @@ import {
   TextField,
   Button,
   Paper,
-  FormGroup,
-  FormControlLabel,
-  Checkbox,
 } from "@material-ui/core";
+
+import { Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,6 +38,9 @@ const Exercise = () => {
   const [exerciseInput, setExerciseInput] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [dataLoaded, setDataLoaded] = useState(false);
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const [capturedExercise, setCapturedExercise] = useState(null);
 
   useEffect(() => {
     if (submitted) {
@@ -75,6 +77,17 @@ const Exercise = () => {
     setDataLoaded(false);
   };
 
+  const handleExerciseClick = (exercise) => {
+    console.log('Clicked exercise:', exercise);
+    setModalOpen(true);
+    setCapturedExercise(exercise); 
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+    setCapturedExercise(null);
+  };
+
   return (
     <div className={classes.root}>
       <Typography variant="h4" component="h1" gutterBottom>
@@ -107,16 +120,25 @@ const Exercise = () => {
       ) : (
         submitted && (
           <>
-            <Box>
+            <Box >
+              <Paper>
+              <Typography variant="h5" style={{ color: '#000000', marginBottom: 2 }}>
+                Showing results for:
+              </Typography>
+              {exercises.length > 0 && (
+                <Typography variant="h4" style={{ fontStyle: 'italic', color: '#FF0000', marginBottom: 2 }}>
+             {exercises[0].muscle.charAt(0).toUpperCase() + exercises[0].muscle.slice(1)}
+              </Typography>
+              )}
+              </Paper>
+
               {exercises.map((exercise, index) => (
-                <Box key={index} sx={{ marginTop: 12}}>
-                   <Paper>
-         <Typography variant="h6">
-            {exercise.name}
-          </Typography>
-         
-          <Typography sx={{ display: 'flex', marginLeft: 8}}>Target Muscle: {exercise.muscle}</Typography>
-          </Paper>
+                <Box key={index} sx={{ marginTop: 12 }}>
+                  <Paper>
+                    <Typography variant="h6">{exercise.name}</Typography>
+            <Button onClick={() => handleExerciseClick(exercise)}>Capture Event</Button>
+                  
+                  </Paper>
                 </Box>
               ))}
             </Box>
@@ -127,6 +149,7 @@ const Exercise = () => {
                   variant="contained"
                   color="primary"
                   onClick={handleNewSearch}
+                  style={{ marginTop: 12}}
                 >
                   New Search
                 </Button>
@@ -135,6 +158,25 @@ const Exercise = () => {
           </>
         )
       )}
+            <Dialog open={modalOpen} onClose={handleCloseModal}>
+        <DialogTitle>Exercise Details</DialogTitle>
+        <DialogContent>
+          {capturedExercise && (
+            <>
+              <Typography variant="h6">Name: {capturedExercise.name}</Typography>
+              <Typography variant="body1">Target Muscle: {capturedExercise.muscle}</Typography>
+              <Typography variant="body1">Instructions: {capturedExercise.instructions}</Typography>
+              <Typography variant="body1">Type: {capturedExercise.type}</Typography>
+              <Typography variant="body1">Difficulty: {capturedExercise.difficulty}</Typography>
+            </>
+          )}
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseModal} color="primary">
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 };

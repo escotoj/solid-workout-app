@@ -55,6 +55,8 @@ REMOVE_WORKOUT - WORKS
 
 ## GOT_TO_COMPLETE
 
+
+- add a pop up modal that displays the entire data from exercise API
 - need to set up, the entire user model and workout models and link to the schemas.
 - do a seed
 - signup and log in work
