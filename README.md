@@ -44,9 +44,6 @@ REMOVE_WORKOUT - WORKS
 ## GET_TODO 
 
 - add notes and date to mutation to triple check seed data and rendering.  
-- style the add_workout page. 
-- style the gains page
-- need log out 
 - ADD API that renders gym photos with unsplash at loggin and sign up. 
 - create feeds page that will display the workouts like a blog.
 - navbar to render on the far left corner.
@@ -56,6 +53,9 @@ REMOVE_WORKOUT - WORKS
 ## GOT_TO_COMPLETE
 
 
+- need log out 
+- style the gains page
+- style the add_workout page. 
 - add a pop up modal that displays the entire data from exercise API
 - need to set up, the entire user model and workout models and link to the schemas.
 - do a seed
