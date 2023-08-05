@@ -91,13 +91,13 @@ const WorkoutForm = ({ workoutId }) => {
             : t.palette.grey[900]
         }}
       >
-        <Grid container justifyContent="center"> {/* Add a Grid container */}
-          <Grid item xs={12}> {/* Make the form take full width on small screens */}
+        <Grid container justifyContent="center"> 
+          <Grid item xs={12}> 
             <Typography
               variant="h4"
               sx={{
                 fontSize: "3rem",
-                // fontFamily: "Lucida Handwritting, Roboto, Helvetica, Arial, sans-serif",
+           
                 marginTop: "1vh",
                 textAlign: "center",
                 textShadow: "2px 2px 2px #a7a59e",
@@ -108,7 +108,7 @@ const WorkoutForm = ({ workoutId }) => {
           </Grid>
           {Auth.loggedIn() && (
             <>
-              <Grid item xs={12} lg={9}> {/* Take full width on small screens, and 9 columns on larger screens */}
+              <Grid item xs={12} lg={9}> 
                 <TextField
                   margin="normal"
                   fullWidth
@@ -134,7 +134,6 @@ const WorkoutForm = ({ workoutId }) => {
                     <MenuItem value="Arial">Arial</MenuItem>
                     <MenuItem value="Verdana">Verdana</MenuItem>
                     <MenuItem value="Helvetica">Helvetica</MenuItem>
-                    {/* Add more font style options here */}
                   </Select>
                 </FormControl>
 
@@ -169,7 +168,7 @@ const WorkoutForm = ({ workoutId }) => {
                 /> */}
               </Grid>
 
-              <Grid item xs={12} sm={6} md={8}> {/* Take full width on small screens */}
+              <Grid item xs={12} sm={6} md={8}> 
               <p
                   className={`m-0 ${
                     characterCount === 280 || error ? 'text-danger' : ''

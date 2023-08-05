@@ -59,13 +59,13 @@ const Signup = () => {
         component="main"
         maxWidth="lg"
         sx={{
-          backgroundImage: "url(https://picsum.photos/1900/1400)", // Replace with your background image URL
+          backgroundImage: "url(https://picsum.photos/1900/1400)", 
           backgroundRepeat: "no-repeat",
           backgroundColor: (t) =>
             t.palette.mode === "light" ? t.palette.grey[50] : t.palette.grey[900],
           backgroundSize: "cover",
           backgroundPosition: "center",
-          minHeight: "100vh", // Ensure the container takes the full height of the viewport
+          minHeight: "100vh", 
           display: "flex",
           flexDirection: "column",
           alignItems: "center",

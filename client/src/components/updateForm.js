@@ -43,7 +43,6 @@ const UpdateWorkoutForm = ({ workoutId, currentDetails, currentTitle, handleNavi
 
   return (
     <div>
-      {/* Dialog (Modal) */}
       <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth>
         <DialogTitle>Edit Workout</DialogTitle>
         <DialogContent >

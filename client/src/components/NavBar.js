@@ -127,7 +127,6 @@ export default function ResponsiveAppBar() {
               </IconButton>
             </Tooltip>
 
-{/* This box below handles the navbar structure */}
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'center' }, minWidth: '35rem', marginLeft: '30rem', marginRight: '30rem',  }}>
               {navigationLinks.map((page) => (
                 <Button

@@ -103,10 +103,10 @@ const MyWorkout = () => {
                       alignItems: "center",
                       justifyContent: "space-between",
                       mb: 2,
-                      padding: "10px", // Add some padding for better spacing
-                      flexDirection: "column", // Stack the items vertically in mobile view
+                      padding: "10px",
+                      flexDirection: "column", 
                       "@media (min-width: 375px)": {
-                        flexDirection: "row", // Switch back to row layout on larger screens (portrait mode)
+                        flexDirection: "row", 
                       },
                     }}
                   >
