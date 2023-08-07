@@ -101,23 +101,24 @@ const Exercise = () => {
         This page is dedicated to API calls that render exercises based on specific muscles that one wishes to target (forearm, chest, calves, etc.)
       </Typography>
       {!dataLoaded && (
-        <>
-          <TextField
-            className={classes.input}
-            variant="outlined"
-            label="Search by Muscle"
-            value={exerciseInput}
-            onChange={(event) => setExerciseInput(event.target.value)}
-          />
-          <Button
-            className={classes.submitButton}
-            variant="contained"
-            color="primary"
-            onClick={handleAddExercise}
-          >
-            Add exercise
-          </Button>
-        </>
+        <div style={{ marginTop: '20px', marginBottom: '20px' }}>
+  <TextField
+    variant="outlined"
+    label="Search by Muscle"
+    value={exerciseInput}
+    onChange={(event) => setExerciseInput(event.target.value)}
+    style={{ marginTop: '20px', marginBottom: '20px' }}
+  />
+  <Button
+    variant="contained"
+    color="primary"
+    onClick={handleAddExercise}
+    style={{ marginTop: '20px', marginBottom: '20px' }}
+  >
+    Add exercise
+  </Button>
+</div>
+
       )}
       {submitted && exercises.length === 0 ? (
         <Typography> No exercises to Display </Typography>
