@@ -8,6 +8,10 @@ import {
   Paper,
 } from "@material-ui/core";
 
+import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
+import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
+import SportsGymnasticsIcon from '@mui/icons-material/SportsGymnastics';
+
 import { Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
 
 const useStyles = makeStyles((theme) => ({
@@ -121,7 +125,7 @@ const Exercise = () => {
         submitted && (
           <>
             <Box >
-              <Paper>
+              <Paper style={{ borderRadius: '10px', padding: '10px' }}>
               <Typography variant="h5" style={{ color: '#000000', marginBottom: 2 }}>
                 Showing results for:
               </Typography>
@@ -136,7 +140,7 @@ const Exercise = () => {
                 <Box key={index} sx={{ marginTop: 12 }}>
                   <Paper>
                     <Typography variant="h6">{exercise.name}</Typography>
-            <Button onClick={() => handleExerciseClick(exercise)}>Capture Event</Button>
+            <Button onClick={() => handleExerciseClick(exercise)} style={{ backgroundColor: 'lightblue' }}>See More</Button>
                   
                   </Paper>
                 </Box>
@@ -163,6 +167,9 @@ const Exercise = () => {
         <DialogContent>
           {capturedExercise && (
             <>
+            <DirectionsRunIcon/>
+            <SportsGymnasticsIcon/>
+            <FitnessCenterIcon/>
               <Typography variant="h6">Name: {capturedExercise.name}</Typography>
               <Typography variant="body1">Target Muscle: {capturedExercise.muscle}</Typography>
               <Typography variant="body1">Instructions: {capturedExercise.instructions}</Typography>
