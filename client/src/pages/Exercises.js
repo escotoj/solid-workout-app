@@ -163,18 +163,25 @@ const Exercise = () => {
         )
       )}
             <Dialog open={modalOpen} onClose={handleCloseModal}>
-        <DialogTitle>Exercise Details</DialogTitle>
+        <DialogTitle >Exercise Details</DialogTitle>
         <DialogContent>
           {capturedExercise && (
             <>
             <DirectionsRunIcon/>
             <SportsGymnasticsIcon/>
             <FitnessCenterIcon/>
-              <Typography variant="h6">Name: {capturedExercise.name}</Typography>
-              <Typography variant="body1">Target Muscle: {capturedExercise.muscle}</Typography>
-              <Typography variant="body1">Instructions: {capturedExercise.instructions}</Typography>
-              <Typography variant="body1">Type: {capturedExercise.type}</Typography>
-              <Typography variant="body1">Difficulty: {capturedExercise.difficulty}</Typography>
+            <Typography variant="body1" style={{ marginBottom: '8px' }}>
+            <span style={{ fontWeight: 'bold' }}>Target Muscle:</span> {capturedExercise.muscle.charAt(0).toUpperCase() + capturedExercise.muscle.slice(1)}
+  </Typography>
+  <Typography variant="body1" style={{ marginBottom: '8px', }}>
+    <span style={{ fontWeight: 'bold' }}>Instructions:</span> {capturedExercise.instructions.charAt(0).toUpperCase() + capturedExercise.instructions.slice(1)}
+  </Typography>
+  <Typography variant="body1" style={{ marginBottom: '8px' }}>
+  <span style={{ fontWeight: 'bold' }}>Type:</span> {capturedExercise.type.charAt(0).toUpperCase() + capturedExercise.type.slice(1)}
+  </Typography>
+  <Typography variant="body1" style={{ marginBottom: '8px' }}>
+  <span style={{ fontWeight: 'bold' }}>Difficulty:</span> {capturedExercise.difficulty.charAt(0).toUpperCase() + capturedExercise.difficulty.slice(1)}
+  </Typography>
             </>
           )}
         </DialogContent>
