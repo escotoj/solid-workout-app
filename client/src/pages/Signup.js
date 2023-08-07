@@ -193,3 +193,28 @@ const Signup = () => {
 };
 
 export default Signup;
+
+
+// API SET FOR UNSPLaSH
+// useEffect(() => {
+//   // Make the API call here
+//   const fetchData = async () => {
+//     const accessKey = 'MFB_RbfwYEadNMPMuZ_GRQX2tahRV4zvNeSem_JbA3s';
+//     try {
+//       const response = await fetch('https://api.unsplash.com/photos/', {
+//         headers: {
+//           Authorization: `Client-ID ${accessKey}`, // Use the correct format for Unsplash access token
+//         },
+//       });
+//       const responseData = await response.json();
+//       setApiData(responseData);
+//     } catch (error) {
+//       console.error('Error fetching data:', error);
+//     }
+//   };
+
+//   fetchData();
+// }, []); 
+// const handleChange = (event) => {
+//   // ... (existing handleChange code)
+// };
