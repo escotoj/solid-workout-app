@@ -43,15 +43,6 @@ REMOVE_WORKOUT - WORKS
 
 ## GET_TODO 
 
-- add a weight material icon, 
-cardio - directions run 
-olympic_weightlifting - fitnesscenter
-plyometrics - directions run 
-powerlifting - fitnesscenter
-strength - fitnesscenter
-stretching - sportgymnastuc icon
-strongman - fitnesscenter
-
 - add cricle icon for addwork out component
 
 - add notes and date to mutation to triple check seed data and rendering.  
