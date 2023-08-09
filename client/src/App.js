@@ -11,21 +11,15 @@ import Signup from "./pages/Signup";
 import History from "./pages/History"
 import Gains from "./pages/Gains";
 
-
+import LandingPage from "./components/LandingPage.js";
 
 function App() {
   const CodeDisplay = () => {
     return (
       <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
+
       >
-        <Typography>
-          This is where you come after you had yourself a solid workout.
-        </Typography>
+<LandingPage/>
       </div>
     );
   };
