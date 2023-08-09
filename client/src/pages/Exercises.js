@@ -104,7 +104,7 @@ const Exercise = () => {
         <div style={{ marginTop: '20px', marginBottom: '20px' }}>
   <TextField
     variant="outlined"
-    label="Search by Muscle"
+    label="Target Muscle"
     value={exerciseInput}
     onChange={(event) => setExerciseInput(event.target.value)}
     style={{ marginTop: '20px', marginBottom: '20px' }}
@@ -115,7 +115,7 @@ const Exercise = () => {
     onClick={handleAddExercise}
     style={{ marginTop: '20px', marginBottom: '20px' }}
   >
-    Add exercise
+    Search
   </Button>
 </div>
 

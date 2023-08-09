@@ -104,7 +104,7 @@ This feature allows you create a search for exercises based on target muscles.
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small">Learn More</Button>
+              <Button component={RouterLink} to="./Exercises" size="small">Learn More</Button>
             </CardActions>
           </Card>
         </Box>
@@ -131,7 +131,7 @@ This feature allows you create a search for exercises based on target muscles.
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small">Learn More</Button>
+              <Button component={RouterLink} to="./Gains" size="small">Learn More</Button>
             </CardActions>
           </Card>
         </Box>
