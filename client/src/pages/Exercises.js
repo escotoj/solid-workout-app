@@ -8,6 +8,8 @@ import {
   Paper,
 } from "@material-ui/core";
 
+import SearchIcon from '@mui/icons-material/Search';
+
 import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import SportsGymnasticsIcon from '@mui/icons-material/SportsGymnastics';
@@ -97,11 +99,15 @@ const Exercise = () => {
       <Typography variant="h4" component="h1" gutterBottom>
         Search
       </Typography>
+      <Box>
+<SearchIcon fontSize="large"/>
+</Box>
       <Typography variant="h6" component="h1" gutterBottom>
         This page is dedicated to API calls that render exercises based on specific muscles that one wishes to target (forearm, chest, calves, etc.)
       </Typography>
+
       {!dataLoaded && (
-        <div style={{ marginTop: '20px', marginBottom: '20px' }}>
+  <div style={{ marginTop: '20px', marginBottom: '20px' }}>
   <TextField
     variant="outlined"
     label="Target Muscle"
@@ -113,11 +119,13 @@ const Exercise = () => {
     variant="contained"
     color="primary"
     onClick={handleAddExercise}
-    style={{ marginTop: '20px', marginBottom: '20px' }}
+    style={{ marginLeft: '10px', marginTop: '20px', marginBottom: '20px' }}
   >
     Search
   </Button>
+
 </div>
+
 
       )}
       {submitted && exercises.length === 0 ? (
