@@ -176,6 +176,14 @@ const MyWorkout = () => {
                       </Typography>
                       <p>{singleWorkout.details}</p>
                       <Typography sx={{ fontSize: 14 }} color="text.secondary">
+                        Date
+                      </Typography>
+                      <p>
+              {singleWorkout.date
+                ? new Date(parseInt(singleWorkout.date)).toLocaleDateString("en-US")
+                : ""}
+            </p>
+                      <Typography sx={{ fontSize: 14 }} color="text.secondary">
                         Author:
                       </Typography>
                       <p>{singleWorkout.workoutAuthor}</p>
