@@ -117,7 +117,7 @@ const MyWorkout = () => {
               >
                 <Box style={{ display: "block" }}>
                   <Typography>{workout.title}</Typography>
-                  <Typography>
+                  <Typography style={{ paddingTop: 8, fontStyle: 'italic', color:'purple' }}>
                     {formattedDate}
                   </Typography>
                 </Box>

@@ -26,35 +26,20 @@ For more questions please contact below:
 Email: j.escoto14@gmail.com
 GitHub: [escotoj](https://github.com/escotoj)
 
-
-## ROUTES
-- QUERY_ME - WORKS
-
-LOGIN - WORKS - FRONTEND
-ADD_USER - WORKS - FRONTEND
-ADD_WORKOUT - WORKS
-
-
-SINGLE_WORKOUT - WORKS
-Update_WORKOUT - WORKS 
-REMOVE_WORKOUT - WORKS
-
-
-
 ## GET_TODO 
 
-- add cricle icon for addwork out component
-
-- add notes and date to mutation to triple check seed data and rendering.  
-- ADD API that renders gym photos with unsplash at loggin and sign up. 
-- create feeds page that will display the workouts like a blog.
+- home page needs better styling. 
+- add material icons to each page. 
+- add floating action button to be in every page once logged in as a component
+- add notes to the history and addworkout   
 - navbar to render on the far left corner.
-- need to style the workout models with MUI
 
+- ADD API that renders gym photos with unsplash at loggin and sign up.
+- create feeds page that will display the workouts like a blog.
 
 ## GOT_TO_COMPLETE
 
-
+- Date added to create and history
 - need log out 
 - style the gains page
 - style the add_workout page. 
