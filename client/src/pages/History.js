@@ -110,10 +110,11 @@ const MyWorkout = () => {
                       },
                     }}
                   >
-                    <Box style={{ display: "block" }}>
-                      <Typography>{workout.title}</Typography>
-                      <Typography>{workout.title}</Typography>
-                    </Box>
+    <Box style={{ display: "block" }}>
+      <Typography>{workout.title}</Typography>
+  <Typography>
+    {new Date(workout.date).toLocaleDateString("en-US")}
+  </Typography>    </Box>
 
                     <Button
                       variant="contained"

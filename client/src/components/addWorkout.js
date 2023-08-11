@@ -76,6 +76,7 @@ const WorkoutForm = ({ workoutId }) => {
   };
 
   
+  
   return (
     <Container component="main" maxWidth="lg">
       <Box
@@ -151,13 +152,13 @@ const WorkoutForm = ({ workoutId }) => {
                   variant="outlined"
                 ></TextField>
 
-                {/* <TextField
+                <TextField
                   type="date"
                   name="expirationDate"
                   value={expirationDate}
                   className="form-input w-100"
                   onChange={handleChange}
-                /> */}
+                />
 
                 {/* <input
                   type="file"
