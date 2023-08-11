@@ -75,7 +75,14 @@ const WorkoutForm = ({ workoutId }) => {
     }
   };
 
-  
+  const formattedDate = (date) => {
+    const formatted = new Date(date);
+    const mm = String(formatted.getMonth() + 1).padStart(2, "0"); // Months are zero-based
+    const dd = String(formatted.getDate()).padStart(2, "0");
+    const yy = String(formatted.getFullYear()).slice(-2);
+
+    return `${mm}/${dd}/${yy}`;
+  };
   
   return (
     <Container component="main" maxWidth="lg">
@@ -152,13 +159,19 @@ const WorkoutForm = ({ workoutId }) => {
                   variant="outlined"
                 ></TextField>
 
-                <TextField
-                  type="date"
-                  name="expirationDate"
-                  value={expirationDate}
-                  className="form-input w-100"
-                  onChange={handleChange}
-                />
+    <div>
+      <TextField
+        type="date"
+        name="expirationDate"
+        value={expirationDate}
+        className="form-input w-100"
+        onChange={handleChange}
+      />
+      {expirationDate && (
+        <p>Formatted Date: {formattedDate(expirationDate)}</p>
+      )}
+    </div>
+
 
                 {/* <input
                   type="file"

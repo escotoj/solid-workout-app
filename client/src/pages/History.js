@@ -92,53 +92,48 @@ const MyWorkout = () => {
               Workouts
             </Typography>
             {userWorkouts.length === 0 ? (
-              <p className="empty-message">No workouts found for this user.</p>
-            ) : (
-              <ul>
-                {userWorkouts.map((workout) => (
-                  <Paper
-                    key={workout._id}
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      mb: 2,
-                      padding: "10px",
-                      flexDirection: "column", 
-                      "@media (min-width: 375px)": {
-                        flexDirection: "row", 
-                      },
-                    }}
-                  >
-    <Box style={{ display: "block" }}>
-      <Typography>{workout.title}</Typography>
-  <Typography>
-    {new Date(workout.date).toLocaleDateString("en-US")}
-  </Typography>    </Box>
+        <p className="empty-message">No workouts found for this user.</p>
+      ) : (
+        <ul>
+          {userWorkouts.map((workout) => {
+            const formattedDate = workout.date
+              ? new Date(parseInt(workout.date)).toLocaleDateString("en-US")
+              : '';
 
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      onClick={() => setSelectedWorkoutId(workout._id)}
-                    >
-                      View Details
-                    </Button>
-                    {/* <UpdateWorkoutButton
-                      workoutId={workout._id}
-                      newDetails={workout.details}
-                      newTitle={workout.title}
-                      newDate={workout.date}
-                      newPicture={workout.picture}
-                      setWorkoutToUpdate={setWorkoutToUpdate}
-                    />
-                    <RemoveWorkoutButton
-                      workoutId={workout._id}
-                      onRemove={handleRemoveWorkout}
-                    /> */}
-                  </Paper>
-                ))}
-              </ul>
-            )}
+            return (
+              <Paper
+                key={workout._id}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  mb: 2,
+                  padding: "10px",
+                  flexDirection: "column", 
+                  "@media (min-width: 375px)": {
+                    flexDirection: "row", 
+                  },
+                }}
+              >
+                <Box style={{ display: "block" }}>
+                  <Typography>{workout.title}</Typography>
+                  <Typography>
+                    {formattedDate}
+                  </Typography>
+                </Box>
+
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={() => setSelectedWorkoutId(workout._id)}
+                >
+                  View Details
+                </Button>
+              </Paper>
+            );
+          })}
+        </ul>
+      )}
           </div>
           <div className="single-workout">
             <Typography
