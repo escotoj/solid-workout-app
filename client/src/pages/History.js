@@ -176,6 +176,10 @@ const MyWorkout = () => {
                       </Typography>
                       <p>{singleWorkout.details}</p>
                       <Typography sx={{ fontSize: 14 }} color="text.secondary">
+                        Notes
+                      </Typography>
+                      <p>{singleWorkout.notes}</p>
+                      <Typography sx={{ fontSize: 14 }} color="text.secondary">
                         Date
                       </Typography>
                       <p>

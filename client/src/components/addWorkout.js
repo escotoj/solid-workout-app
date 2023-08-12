@@ -24,6 +24,8 @@ const WorkoutForm = ({ workoutId }) => {
   const [workoutText, setWorkoutText] = useState('');
   const [expirationDate, setExpirationDate] = useState('');
 
+  const [noteText, setNoteText] = useState('');
+
 
 
   const [characterCount, setCharacterCount] = useState(0);
@@ -42,12 +44,14 @@ const WorkoutForm = ({ workoutId }) => {
           details: workoutText,
           title: workoutTitle,
           date: expirationDate,
+          notes: noteText,
           workoutAuthor: Auth.getProfile().data.username,
         }
       });
 
       setWorkoutTitle('');
       setWorkoutText('');
+      setNoteText('');
       setExpirationDate('');
       console.log(data)
       alert('Workout Added');
@@ -68,6 +72,8 @@ const WorkoutForm = ({ workoutId }) => {
       setWorkoutTitle(value);
     } else if (name === 'expirationDate') {
       setExpirationDate(value);
+    } else if (name === 'noteText') {
+      setNoteText(value);
     } 
   };
 
@@ -136,6 +142,19 @@ const WorkoutForm = ({ workoutId }) => {
                   value={workoutText}
                   onChange={handleChange}
                   name="workoutText"
+                  multiline
+                  rows={6}
+                  variant="outlined"
+                ></TextField>
+                 <TextField
+                  margin="normal"
+                  fullWidth
+                  id="noteText"
+                  placeholder="Add Notes..."
+                  label="Example: Clean Rep, No Spotter.."
+                  value={noteText}
+                  onChange={handleChange}
+                  name="noteText"
                   multiline
                   rows={6}
                   variant="outlined"
