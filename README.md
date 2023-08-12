@@ -28,6 +28,7 @@ GitHub: [escotoj](https://github.com/escotoj)
 
 ## GET_TODO 
 
+- there is an error with the the way data is being saved (saves it as the previous day)
 - home page needs better styling. 
 - add material icons to each page. 
 - add floating action button to be in every page once logged in as a component

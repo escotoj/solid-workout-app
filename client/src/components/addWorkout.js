@@ -23,7 +23,6 @@ const WorkoutForm = ({ workoutId }) => {
   const [workoutTitle, setWorkoutTitle] = useState('');
   const [workoutText, setWorkoutText] = useState('');
   const [expirationDate, setExpirationDate] = useState('');
-  const [fontStyle, setFontStyle] = useState('Arial'); 
 
 
 
@@ -50,7 +49,6 @@ const WorkoutForm = ({ workoutId }) => {
       setWorkoutTitle('');
       setWorkoutText('');
       setExpirationDate('');
-      setFontStyle('Arial');
       console.log(data)
       alert('Workout Added');
             navigate('/history');
@@ -70,14 +68,12 @@ const WorkoutForm = ({ workoutId }) => {
       setWorkoutTitle(value);
     } else if (name === 'expirationDate') {
       setExpirationDate(value);
-    } else if (name === 'fontStyle') {
-      setFontStyle(value);
-    }
+    } 
   };
 
   const formattedDate = (date) => {
     const formatted = new Date(date);
-    const mm = String(formatted.getMonth() + 1).padStart(2, "0"); // Months are zero-based
+    const mm = String(formatted.getMonth() + 1).padStart(2, "0"); 
     const dd = String(formatted.getDate()).padStart(2, "0");
     const yy = String(formatted.getFullYear()).slice(-2);
 
@@ -130,27 +126,13 @@ const WorkoutForm = ({ workoutId }) => {
                   name="workoutTitle"
                 />
 
-                <FormControl fullWidth variant="outlined" size="small">
-                  <InputLabel htmlFor="font-style-select">Font Style</InputLabel>
-                  <Select
-                    value={fontStyle}
-                    onChange={handleChange}
-                    input={<OutlinedInput label="Font Style" id="font-style-select" />}
-                    name="fontStyle"
-                    label="Font Style"
-                  >
-                    <MenuItem value="Arial">Arial</MenuItem>
-                    <MenuItem value="Verdana">Verdana</MenuItem>
-                    <MenuItem value="Helvetica">Helvetica</MenuItem>
-                  </Select>
-                </FormControl>
 
                 <TextField
                   margin="normal"
                   fullWidth
                   id="workoutText"
                   placeholder="Add your workout..."
-                  label="workout Text"
+                  label="Example: Chest Day, 45 minutes, 2x Max Bench.."
                   value={workoutText}
                   onChange={handleChange}
                   name="workoutText"
@@ -172,14 +154,6 @@ const WorkoutForm = ({ workoutId }) => {
       )}
     </div>
 
-
-                {/* <input
-                  type="file"
-                  name="image"
-                  accept="image/*"
-                  className="form-input w-100"
-                  onChange={handleChange}
-                /> */}
               </Grid>
 
               <Grid item xs={12} sm={6} md={8}> 
