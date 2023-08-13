@@ -203,7 +203,7 @@ const MyWorkout = () => {
                           newDetails={singleWorkout.details}
                           newTitle={singleWorkout.title}
                           newDate={singleWorkout.date}
-                          newPicture={singleWorkout.picture}
+                          newNote={singleWorkout.notes}
                           setWorkoutToUpdate={setWorkoutToUpdate}
                         />
                       </Box>

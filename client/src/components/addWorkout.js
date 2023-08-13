@@ -138,7 +138,7 @@ const WorkoutForm = ({ workoutId }) => {
                   fullWidth
                   id="workoutText"
                   placeholder="Add your workout..."
-                  label="Example: Chest Day, 45 minutes, 2x Max Bench.."
+                  label="Workout Details"
                   value={workoutText}
                   onChange={handleChange}
                   name="workoutText"
@@ -146,19 +146,20 @@ const WorkoutForm = ({ workoutId }) => {
                   rows={6}
                   variant="outlined"
                 ></TextField>
-                 <TextField
+
+                <TextField
                   margin="normal"
                   fullWidth
                   id="noteText"
                   placeholder="Add Notes..."
-                  label="Example: Clean Rep, No Spotter.."
+                  label="Additional Notes"
                   value={noteText}
                   onChange={handleChange}
                   name="noteText"
                   multiline
-                  rows={6}
+                  rows={4}
                   variant="outlined"
-                ></TextField>
+                />
 
     <div>
       <TextField
