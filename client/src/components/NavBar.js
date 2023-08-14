@@ -239,7 +239,7 @@ export default function ResponsiveAppBar() {
                 onClick={handleOpenNavMenu}
                 color="inherit"
               >
-                <MenuIcon />
+                <MenuIcon fontSize='large'/>
               </IconButton>
               <Menu
                 id="menu-appbar"
@@ -261,7 +261,7 @@ export default function ResponsiveAppBar() {
               >
                 {navigationLinks.map((page) => (
                   <MenuItem key={page.label} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center" component={Link} to={page.path}>
+                    <Typography textAlign="center" component={Link} to={page.path} style={{ fontWeight: 'bold', textDecoration: 'none', color: 'inherit' }}>
                       {page.label}
                     </Typography>
                   </MenuItem>

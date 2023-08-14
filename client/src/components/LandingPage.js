@@ -63,7 +63,7 @@ variant="h4" gutterBottom sx={{ mt: 1, textAlign: "center" }}
               </Typography>
               <Button
                 component={RouterLink}
-                to="/signup"
+                to="/gains"
                 variant="contained"
                 color="primary"
                 className={classes.button}
@@ -75,10 +75,10 @@ variant="h4" gutterBottom sx={{ mt: 1, textAlign: "center" }}
         </Container>
       </Box>
       <Container className={classes.content} maxWidth="md">
-        <Typography variant="h4" align="center" gutterBottom>
+        <Typography variant="h4" align="center" gutterBottom style={{ marginBottom:'5%'}}>
           Our Features
         </Typography>
-        <Typography variant="body1" align="center" paragraph>
+        <Typography variant="body1" align="center" paragraph style={{ marginBottom:'5%'}}>
           Explore the features that will help you on your fitness journey.
         </Typography>
 
