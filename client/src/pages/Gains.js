@@ -4,6 +4,7 @@ import { Box,
   Typography
 } from "@material-ui/core";
 
+import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import WorkoutForm from "../components/addWorkout";
 
 const useStyles = makeStyles((theme) => ({
@@ -49,7 +50,7 @@ const Log = () => {
       <Typography variant="h4" component="h1">
         Log Your Gains
       </Typography>
-
+<FitnessCenterIcon fontSize="large" />
       <WorkoutForm/>
 
       <Typography variant="h6" component="h1">

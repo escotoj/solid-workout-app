@@ -13,7 +13,8 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 
 
-import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
+
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const useStyles = makeStyles((theme) => ({
   hero: {
@@ -41,13 +42,7 @@ const LandingPage = () => {
           <Grid justifyContent="center">
             <Grid item xs={12} md={8}>
               <Typography
-                variant="h4"
-                component="h1"
-                gutterBottom
-                sx={{
-                  fontWeight: "bold",
-                  color: "#00000",
-                }}
+variant="h4" gutterBottom sx={{ mt: 1, textAlign: "center" }}
               >
                 Welcome to
               </Typography>
@@ -62,7 +57,7 @@ const LandingPage = () => {
               >
                 Solid Workout
               </Typography>
-              <FitnessCenterIcon fontSize="large"/>
+              <FavoriteIcon fontSize="large"/>
               <Typography variant="h6" color="secondary" paragraph>
                 Your go-to platform for achieving your fitness and health gains.
               </Typography>

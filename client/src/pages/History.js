@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_ME, QUERY_SINGLE_WORKOUT } from "../utils/queries";
 import { REMOVE_WORKOUT } from "../utils/mutations";
@@ -9,9 +9,11 @@ import RemoveWorkoutButton from "../components/RemoveWorkoutBtn";
 
 import UpdateWorkoutForm from "../components/updateForm";
 
+import HistoryIcon from '@mui/icons-material/History';
+
 const MyWorkout = () => {
   const [singleWorkout, setSingleWorkout] = useState(null);
-
+  const detailsRef = useRef(null);
   const [workoutToUpdate, setWorkoutToUpdate] = useState(null);
   const [selectedWorkoutId, setSelectedWorkoutId] = useState(null);
   const { loading, error, data } = useQuery(GET_ME);
@@ -47,6 +49,8 @@ const MyWorkout = () => {
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
 
+
+  
   const handleRemoveWorkout = async (workoutId) => {
     console.log(`Attempting to remove workout with ID: ${workoutId}`);
     const { data } = await removeWorkout({
@@ -66,6 +70,12 @@ const MyWorkout = () => {
     }
   };
 
+  
+  const handleViewDetails = (workoutId) => {
+    setSelectedWorkoutId(workoutId);
+    detailsRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <Box
       sx={{
@@ -78,6 +88,7 @@ const MyWorkout = () => {
       <Typography variant="h4" gutterBottom sx={{ mt: 1, textAlign: "center" }}>
         Past Gains
       </Typography>
+      <HistoryIcon fontSize="large"/>
       <Paper sx={{ width: "100%", margin: "20px", padding: 1 }}>
         <div>
           <div>
@@ -125,7 +136,7 @@ const MyWorkout = () => {
                 <Button
                   variant="contained"
                   color="primary"
-                  onClick={() => setSelectedWorkoutId(workout._id)}
+                  onClick={() => handleViewDetails(workout._id)}
                 >
                   View Details
                 </Button>
@@ -144,7 +155,7 @@ const MyWorkout = () => {
                 fontFamily: "Calibri, Roboto, Helvetica, Arial",
                 marginTop: "4vh",
                 marginBottom: "1vh",
-              }}
+              }} ref={detailsRef}
             >
               Selected Workout
             </Typography>
@@ -156,8 +167,8 @@ const MyWorkout = () => {
                   <Card
                   sx={{
                     maxWidth: "500px",
-                    border: "10px double #c2dcf7",
-                    backgroundColor: "#fbe8d6",
+                    border: "10px double #800080",
+                    backgroundColor: "#FAF9F6",
                     padding: "5%",
                     margin: "0 auto", 
                     "@media (max-width: 390px)": {

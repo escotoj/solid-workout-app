@@ -106,14 +106,14 @@ const WorkoutForm = ({ workoutId }) => {
             <Typography
               variant="h4"
               sx={{
-                fontSize: "3rem",
+                fontSize: "2rem",
            
                 marginTop: "1vh",
                 textAlign: "center",
                 textShadow: "2px 2px 2px #a7a59e",
               }}
             >
-              Add Workout
+             
             </Typography>
           </Grid>
           {Auth.loggedIn() && (

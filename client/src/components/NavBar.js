@@ -177,7 +177,7 @@ export default function ResponsiveAppBar() {
                   >
                     <Typography
                       style={{
-                        fontSize: '1.35rem',
+                        fontSize: '1.25rem',
                         '&:hover': {
                           fontStyle: 'bold',
                         }
@@ -230,7 +230,7 @@ export default function ResponsiveAppBar() {
               </Menu>
             </Box>
 
-            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+            <Box sx={{ flexGrow: 1, display: { xs: 'block', md: 'none' } }}>
               <IconButton
                 size="large"
                 aria-label="account of current user"
