@@ -128,7 +128,7 @@ const MyWorkout = () => {
               >
                 <Box style={{ display: "block" }}>
                   <Typography>{workout.title}</Typography>
-                  <Typography style={{ paddingTop: 8, fontStyle: 'italic', color:'purple' }}>
+                  <Typography style={{ paddingTop: 8, fontStyle: 'italic', color:'#055B5C' }}>
                     {formattedDate}
                   </Typography>
                 </Box>
@@ -178,30 +178,30 @@ const MyWorkout = () => {
                   >
                     <div className="single-workout-details">
                       <Typography sx={{ fontSize: 14 }} color="text.secondary">
-                        Title
+                        Title:
                       </Typography>
-                      <h2>{singleWorkout.title}</h2>
+                      <Typography sx={{margin: 2 }} gutterBottom>{singleWorkout.title}</Typography>
 
                       <Typography sx={{ fontSize: 14 }} color="text.secondary">
-                        Details
+                        Details:
                       </Typography>
-                      <p>{singleWorkout.details}</p>
+                      <Typography gutterBottom sx={{margin: 2 }}>{singleWorkout.details}</Typography>
                       <Typography sx={{ fontSize: 14 }} color="text.secondary">
-                        Notes
+                        Notes:
                       </Typography>
-                      <p>{singleWorkout.notes}</p>
+                      <Typography sx={{margin: 2 }}>{singleWorkout.notes}</Typography>
                       <Typography sx={{ fontSize: 14 }} color="text.secondary">
-                        Date
+                        Date:
                       </Typography>
-                      <p>
+                      <Typography sx={{margin: 2 }}>
               {singleWorkout.date
                 ? new Date(parseInt(singleWorkout.date)).toLocaleDateString("en-US")
                 : ""}
-            </p>
+            </Typography>
                       <Typography sx={{ fontSize: 14 }} color="text.secondary">
                         Author:
                       </Typography>
-                      <p>{singleWorkout.workoutAuthor}</p>
+                      <Typography sx={{margin: 2 }}>{singleWorkout.workoutAuthor}</Typography >
                       <Box
                         sx={{ mt: 8, textAlign: "end", paddingRight: "20%" }}
                       ></Box>

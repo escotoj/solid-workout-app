@@ -99,7 +99,7 @@ variant="h4" gutterBottom sx={{ mt: 1, textAlign: "center" }}
               Exercise Search
               </Typography>
               <Typography variant="body2" color="text.secondary">
-This feature allows you create a search for exercises based on target muscles. 
+This feature allows you to create a search for exercises based on target muscles. 
               </Typography>
             </CardContent>
             <CardActions>
@@ -126,7 +126,7 @@ This feature allows you create a search for exercises based on target muscles.
                 Log Your Gains
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Feature that allows you to keep track of your workout history. 
+                This feature that allows you to keep track of your workout history. 
               </Typography>
             </CardContent>
             <CardActions>

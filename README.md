@@ -28,19 +28,19 @@ GitHub: [escotoj](https://github.com/escotoj)
 
 ## GET_TODO 
 
-- there is an error with the the way data is being saved (saves it as the previous day)
-- home page needs better styling. 
-- add material icons to each page. 
+- ADD API that renders gym photos with unsplash at loggin and sign up, lanidng page. 
 - add floating action button to be in every page once logged in as a component
-- add notes to the history and addworkout   
-- navbar to render on the far left corner.
+- there is an error with the the way data is being saved (saves it as the previous day)
+- when user logged out, lets get started directs you to login. 
+- gains/history page needs to say, user must be logged in. 
 
-- ADD API that renders gym photos with unsplash at loggin and sign up.
-- create feeds page that will display the workouts like a blog.
 
 ## GOT_TO_COMPLETE
 
 - Date added to create and history
+- add material icons to each page. 
+- home page needs better styling. 
+- add notes to the history and addworkout   
 - need log out 
 - style the gains page
 - style the add_workout page. 
@@ -52,3 +52,4 @@ GitHub: [escotoj](https://github.com/escotoj)
 - work on the user models for longin and sing up
 - Workouts Page - API can be made needs its own page. 
 - delete comment and just keep notes. 
+- navbar to render on the far left corner.

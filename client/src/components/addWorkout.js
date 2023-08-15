@@ -28,7 +28,7 @@ const WorkoutForm = ({ workoutId }) => {
 
 
 
-  const [characterCount, setCharacterCount] = useState(0);
+  // const [characterCount, setCharacterCount] = useState(0);
 
 
   const [createWorkout, { error }] = useMutation(ADD_WORKOUT);
@@ -66,7 +66,7 @@ const WorkoutForm = ({ workoutId }) => {
 
     if (name === 'workoutText' && value.length <= 280) {
       setWorkoutText(value);
-      setCharacterCount(value.length);
+      // setCharacterCount(value.length);
       console.log(event);
     } else if (name === 'workoutTitle') {
       setWorkoutTitle(value);
@@ -90,7 +90,7 @@ const WorkoutForm = ({ workoutId }) => {
     <Container component="main" maxWidth="lg">
       <Box
         sx={{
-          marginTop: '3rem',
+          marginTop: '1rem',
           boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
           borderRadius: '4px',
           display: 'flex',
@@ -101,7 +101,7 @@ const WorkoutForm = ({ workoutId }) => {
             : t.palette.grey[900]
         }}
       >
-        <Grid container justifyContent="center"> 
+        <Grid container justifyContent="center" margin='15px' > 
           <Grid item xs={12}> 
             <Typography
               variant="h4"
@@ -118,7 +118,7 @@ const WorkoutForm = ({ workoutId }) => {
           </Grid>
           {Auth.loggedIn() && (
             <>
-              <Grid item xs={12} lg={9}> 
+              <Grid item xs={12} lg={9} > 
                 <TextField
                   margin="normal"
                   fullWidth
@@ -161,13 +161,14 @@ const WorkoutForm = ({ workoutId }) => {
                   variant="outlined"
                 />
 
-    <div>
+    <div  marginTop={'10px'}>
       <TextField
         type="date"
         name="expirationDate"
         value={expirationDate}
         className="form-input w-100"
         onChange={handleChange}
+       style={{ marginTop: '10px'}}
       />
       {expirationDate && (
         <p>Formatted Date: {formattedDate(expirationDate)}</p>
@@ -177,14 +178,7 @@ const WorkoutForm = ({ workoutId }) => {
               </Grid>
 
               <Grid item xs={12} sm={6} md={8}> 
-              <p
-                  className={`m-0 ${
-                    characterCount === 280 || error ? 'text-danger' : ''
-                  }`}
-                >
-                  Character Count: {characterCount}/280
-                  {error && <span className="ml-2">{error.message}</span>}
-                </p>
+
                 <Link onClick={handleFormSubmit}>
                   <Button
                     type="submit"
