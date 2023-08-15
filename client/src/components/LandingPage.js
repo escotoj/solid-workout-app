@@ -57,7 +57,7 @@ variant="h4" gutterBottom sx={{ mt: 1, textAlign: "center" }}
               >
                 Solid Workout
               </Typography>
-              <FavoriteIcon fontSize="large"/>
+              <FavoriteIcon fontSize="large" style={{color:"red"}}/>
               <Typography variant="h6" color="secondary" paragraph>
                 Your go-to platform for achieving your fitness and health gains.
               </Typography>
@@ -65,7 +65,7 @@ variant="h4" gutterBottom sx={{ mt: 1, textAlign: "center" }}
                 component={RouterLink}
                 to="/gains"
                 variant="contained"
-                color="primary"
+                color="secondary"
                 className={classes.button}
               >
                 Get Started

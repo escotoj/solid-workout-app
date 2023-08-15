@@ -109,7 +109,7 @@ export default function ResponsiveAppBar() {
   ] : pages;
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: 'red'}}>
+    <AppBar position="static" sx={{ backgroundColor: '#055B5C'}}>
       <Container >
         <div>
 

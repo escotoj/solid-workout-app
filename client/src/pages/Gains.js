@@ -47,10 +47,10 @@ const Log = () => {
 
   return (
     <Box className={classes.root}>
-      <Typography variant="h4" component="h1">
+      <Typography variant="h4" component="h1" gutterBottom>
         Log Your Gains
       </Typography>
-<FitnessCenterIcon fontSize="large" />
+<FitnessCenterIcon fontSize="large" style={{color:"red"}}/>
       <WorkoutForm/>
 
       <Typography variant="h6" component="h1">

@@ -88,7 +88,7 @@ const MyWorkout = () => {
       <Typography variant="h4" gutterBottom sx={{ mt: 1, textAlign: "center" }}>
         Past Gains
       </Typography>
-      <HistoryIcon fontSize="large"/>
+      <HistoryIcon fontSize="large" style={{color:"red"}}/>
       <Paper sx={{ width: "100%", margin: "20px", padding: 1 }}>
         <div>
           <div>
@@ -135,7 +135,7 @@ const MyWorkout = () => {
 
                 <Button
                   variant="contained"
-                  color="primary"
+                  color="secondary"
                   onClick={() => handleViewDetails(workout._id)}
                 >
                   View Details
@@ -167,7 +167,7 @@ const MyWorkout = () => {
                   <Card
                   sx={{
                     maxWidth: "500px",
-                    border: "10px double #800080",
+                    border: "5px double #6EC6CA",
                     backgroundColor: "#FAF9F6",
                     padding: "5%",
                     margin: "0 auto", 

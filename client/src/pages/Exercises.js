@@ -100,7 +100,7 @@ const Exercise = () => {
         Search
       </Typography>
       <Box>
-<SearchIcon fontSize="large"/>
+<SearchIcon fontSize="large" style={{color:"red"}}/>
 </Box>
       <Typography variant="h6" component="h1" gutterBottom>
         This page is dedicated to API calls that render exercises based on specific muscles that one wishes to target (forearm, chest, calves, etc.)
@@ -117,9 +117,8 @@ const Exercise = () => {
   />
   <Button
     variant="contained"
-    color="primary"
     onClick={handleAddExercise}
-    style={{ marginLeft: '10px', marginTop: '20px', marginBottom: '20px' }}
+    style={{ marginLeft: '10px', marginTop: '20px', marginBottom: '20px', backgroundColor:"#9c27b0", color: 'white' }}
   >
     Search
   </Button>
@@ -139,7 +138,7 @@ const Exercise = () => {
                 Showing results for:
               </Typography>
               {exercises.length > 0 && (
-                <Typography variant="h4" style={{ fontStyle: 'italic', color: '#FF0000', marginBottom: 2 }}>
+                <Typography variant="h5" style={{fontWeight: 'bold', color: '#055B5C', margin: 15, textDecoration:'red underline overline', textTransform: 'uppercase'}}>
              {exercises[0].muscle.charAt(0).toUpperCase() + exercises[0].muscle.slice(1)}
               </Typography>
               )}
@@ -149,7 +148,7 @@ const Exercise = () => {
                 <Box key={index} sx={{ marginTop: 12 }}>
                   <Paper>
                     <Typography variant="h6">{exercise.name}</Typography>
-            <Button onClick={() => handleExerciseClick(exercise)} style={{ backgroundColor: 'lightblue' }}>See More</Button>
+            <Button onClick={() => handleExerciseClick(exercise)} style={{ backgroundColor: '#9c27b0', color:'white', marginTop: "2%", marginBottom: '2%'}}>See More</Button>
                   
                   </Paper>
                 </Box>
@@ -157,15 +156,16 @@ const Exercise = () => {
             </Box>
             {dataLoaded && (
               <>
-                <Button
-                  className={classes.submitButton}
-                  variant="contained"
-                  color="primary"
-                  onClick={handleNewSearch}
-                  style={{ marginTop: 12}}
-                >
-                  New Search
-                </Button>
+<div style={{ display: 'flex', justifyContent: 'center', marginTop: 12, marginRight:'7%' }}>
+  <Button
+    className={classes.submitButton}
+    variant="contained"
+    color="primary"
+    onClick={handleNewSearch}
+  >
+    New Search
+  </Button>
+</div>
               </>
             )}
           </>
