@@ -31,17 +31,27 @@ const UnsplashFitnessGallery = () => {
   }, []);
 
   return (
-    <Grid container justifyContent="center">
+    <Grid container>
       {loading ? (
         <CircularProgress />
       ) : (
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid xs={12} sm={6} md={12}>
           <Card>
             <CardMedia
               component="img"
               alt={photoData.alt_description}
-              height="140"
+              height="600"
               image={photoData.urls.regular}
+              sx={{
+                borderRadius: "0 1rem 1rem 0",
+                backgroundRepeat: "no-repeat",
+                backgroundColor: (t) =>
+                  t.palette.mode === "light"
+                    ? t.palette.grey[50]
+                    : t.palette.grey[900],
+                minWidth: "100vh",
+                boxShadow: " 3px 3px 3px #7b8782",
+              }}
             />
           </Card>
         </Grid>

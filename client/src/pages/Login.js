@@ -15,6 +15,8 @@ import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 import auth from "../utils/auth";
 
+import UnsplashGallery from "../components/FitnessPhotos"
+
 export default function SignInSide() {
   const [loginUser, { error }] = useMutation(LOGIN_USER);
   const handleSubmit = async (event) => {
@@ -39,44 +41,22 @@ export default function SignInSide() {
   };
 
   return (
-    <Container component="main" maxWidth="lg"
-    minheight="60vh">
-      <Box
-        sx={{
-          marginTop: "16vh",
-        }}
-      >
-        <Grid container>
+    <Container component="main" maxWidth="lg" minHeight="60vh">
+      <Box sx={{ marginTop: "8vh" }} >
+        <Grid container >
           <CssBaseline />
-          <Grid
-            item
-            xs={false}
-            sm={4}
-            md={7}
-            sx={{
-              borderRadius: "1rem 0 0 1rem",
-              backgroundImage: "url(https://source.unsplash.com/random)", // Replace with your background image URL
-              backgroundRepeat: "no-repeat",
-              backgroundColor: (t) =>
-                t.palette.mode === "light"
-                  ? t.palette.grey[50]
-                  : t.palette.grey[900],
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              minWidth: "25vh",
-              boxShadow: " 3px 3px 3px #7b8782",
-            }}
-          />
+
+
           <Grid
             item
             xs={12}
             sm={8}
-            md={5}
+            md={7}
             component={Paper}
-            elevation={6}
+            elevation={5}
             square
             sx={{
-              borderRadius: "0 1rem 1rem 0",
+              borderRadius: "1rem 0 0 1rem",
               opacity: 0.86,
               background: "linear-gradient(0.625turn, rgba(203, 211, 255, 0.75), rgba(195, 214, 247, 0.75))",
               boxShadow: " 3px 3px 3px #7b8782"
@@ -91,6 +71,7 @@ export default function SignInSide() {
                 alignItems: "center",
               }}
             >
+              
               <Typography component="h1" variant="h5"
                 sx={{
                   fontWeight: "400",
@@ -157,6 +138,18 @@ export default function SignInSide() {
                 </Grid>
               </Box>
             </Box>
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={5} // Adjust the md value to control the width of the gallery
+            sx={{
+              display: "flex",
+              alignItems: "flex-end", // Align the gallery with the second grid
+            }}
+          >
+            <UnsplashGallery /> {/* Use the UnsplashFitnessGallery component */}
           </Grid>
         </Grid>
       </Box>

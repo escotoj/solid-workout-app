@@ -15,7 +15,7 @@ import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import SportsGymnasticsIcon from '@mui/icons-material/SportsGymnastics';
 
 import { Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
-import UnsplashGallery from "../components/fitnessPhotos";
+import UnsplashGallery from "../components/FitnessPhotos";
 
 const useStyles = makeStyles((theme) => ({
   root: {
