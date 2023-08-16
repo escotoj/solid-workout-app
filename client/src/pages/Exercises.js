@@ -15,6 +15,7 @@ import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import SportsGymnasticsIcon from '@mui/icons-material/SportsGymnastics';
 
 import { Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
+import UnsplashGallery from "../components/fitnessPhotos";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -122,7 +123,7 @@ const Exercise = () => {
   >
     Search
   </Button>
-
+< UnsplashGallery/>
 </div>
 
 
