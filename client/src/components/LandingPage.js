@@ -1,5 +1,5 @@
 import React from "react";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink,  } from "react-router-dom";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -63,7 +63,7 @@ variant="h4" gutterBottom sx={{ mt: 1, textAlign: "center" }}
               </Typography>
               <Button
                 component={RouterLink}
-                to="/gains"
+                to="/exercises"
                 variant="contained"
                 color="secondary"
                 className={classes.button}

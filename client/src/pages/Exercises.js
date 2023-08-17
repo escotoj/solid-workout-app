@@ -55,10 +55,12 @@ const Exercise = () => {
     }
   }, [submitted, exerciseInput]);
 
+const accessKey = process.env.REACT_APP_EXERCISES_KEY;
+
   const fetchExercises = () => {
     fetch(`https://api.api-ninjas.com/v1/exercises?muscle=${exerciseInput}`, {
       headers: {
-        "X-Api-Key": "aNt6yjMoFkLXGlw/1IEuiw==mJbbhiQt0Znr1ixr",
+        "X-Api-Key": `${accessKey}`,
       },
     })
       .then((res) => res.json())
@@ -104,7 +106,7 @@ const Exercise = () => {
 <SearchIcon fontSize="large" style={{color:"red"}}/>
 </Box>
       <Typography variant="h6" component="h1" gutterBottom>
-        This page is dedicated to API calls that render exercises based on specific muscles that one wishes to target (forearm, chest, calves, etc.)
+        Search by targeted muscles (forearm, chest, calves, etc.), each search renders the top 10 exercises with details and instructions. 
       </Typography>
 
       {!dataLoaded && (

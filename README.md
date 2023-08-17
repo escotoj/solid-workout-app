@@ -31,7 +31,7 @@ GitHub: [escotoj](https://github.com/escotoj)
 - add floating action button to be in every page once logged in as a component
 - there is an error with the the way data is being saved (saves it as the previous day)
 - when user logged out, lets get started directs you to login. 
-- gains/history page needs to say, user must be logged in. 
+
 
 
 ## GOT_TO_COMPLETE
