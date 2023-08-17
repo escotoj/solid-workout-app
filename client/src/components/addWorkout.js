@@ -80,7 +80,7 @@ const WorkoutForm = ({ workoutId }) => {
   const formattedDate = (date) => {
     const formatted = new Date(date);
     const mm = String(formatted.getMonth() + 1).padStart(2, "0"); 
-    const dd = String(formatted.getDate()).padStart(2, "0");
+    const dd = String(formatted.getDate() + 1).padStart(2, "0");
     const yy = String(formatted.getFullYear()).slice(-2);
 
     return `${mm}/${dd}/${yy}`;

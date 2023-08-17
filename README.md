@@ -28,7 +28,6 @@ GitHub: [escotoj](https://github.com/escotoj)
 
 ## GET_TODO 
 
-- ADD API that renders gym photos with unsplash at loggin and sign up, lanidng page. 
 - add floating action button to be in every page once logged in as a component
 - there is an error with the the way data is being saved (saves it as the previous day)
 - when user logged out, lets get started directs you to login. 
@@ -37,6 +36,7 @@ GitHub: [escotoj](https://github.com/escotoj)
 
 ## GOT_TO_COMPLETE
 
+- ADD API that renders gym photos with unsplash at loggin and sign up, lanidng page. 
 - Date added to create and history
 - add material icons to each page. 
 - home page needs better styling. 

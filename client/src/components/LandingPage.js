@@ -40,7 +40,7 @@ const LandingPage = () => {
       <Box className={classes.hero}>
         <Container>
           <Grid justifyContent="center">
-            <Grid item xs={12} md={8}>
+            <Grid item xs={12} md={12}>
               <Typography
 variant="h4" gutterBottom sx={{ mt: 1, textAlign: "center" }}
               >
@@ -52,13 +52,13 @@ variant="h4" gutterBottom sx={{ mt: 1, textAlign: "center" }}
                 gutterBottom
                 sx={{
                   fontStyle: "italic",
-                  color: "#00000",
+                  color: "#055B5C",
                 }}
               >
                 Solid Workout
               </Typography>
               <FavoriteIcon fontSize="large" style={{color:"red"}}/>
-              <Typography variant="h6" color="secondary" paragraph>
+              <Typography variant="h6" color="#00000" paragraph>
                 Your go-to platform for achieving your fitness and health gains.
               </Typography>
               <Button
@@ -78,7 +78,7 @@ variant="h4" gutterBottom sx={{ mt: 1, textAlign: "center" }}
         <Typography variant="h4" align="center" gutterBottom style={{ marginBottom:'5%'}}>
           Our Features
         </Typography>
-        <Typography variant="body1" align="center" paragraph style={{ marginBottom:'5%'}}>
+        <Typography variant="body1" align="center" paragraph style={{ marginBottom:'5%'}} >
           Explore the features that will help you on your fitness journey.
         </Typography>
 
@@ -98,7 +98,7 @@ variant="h4" gutterBottom sx={{ mt: 1, textAlign: "center" }}
               <Typography gutterBottom variant="h5" component="div">
               Exercise Search
               </Typography>
-              <Typography variant="body2" color="text.secondary">
+              <Typography variant="body2" color="#055B5C">
 This feature allows you to create a search for exercises based on target muscles. 
               </Typography>
             </CardContent>
@@ -125,7 +125,7 @@ This feature allows you to create a search for exercises based on target muscles
               <Typography gutterBottom variant="h5" component="div">
                 Log Your Gains
               </Typography>
-              <Typography variant="body2" color="text.secondary">
+              <Typography variant="body2" color="#055B5C">
                 This feature that allows you to keep track of your workout history. 
               </Typography>
             </CardContent>

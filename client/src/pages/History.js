@@ -198,10 +198,10 @@ const MyWorkout = () => {
                 ? new Date(parseInt(singleWorkout.date)).toLocaleDateString("en-US")
                 : ""}
             </Typography>
-                      <Typography sx={{ fontSize: 14 }} color="text.secondary">
+                      {/* <Typography sx={{ fontSize: 14 }} color="text.secondary">
                         Author:
-                      </Typography>
-                      <Typography sx={{margin: 2 }}>{singleWorkout.workoutAuthor}</Typography >
+                      </Typography> */}
+                      {/* <Typography sx={{margin: 2 }}>{singleWorkout.workoutAuthor}</Typography > */}
                       <Box
                         sx={{ mt: 8, textAlign: "end", paddingRight: "20%" }}
                       ></Box>

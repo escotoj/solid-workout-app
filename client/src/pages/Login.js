@@ -17,6 +17,8 @@ import auth from "../utils/auth";
 
 import UnsplashGallery from "../components/FitnessPhotos"
 
+import WeightsGallery from "../components/WeightsPhotos";
+
 export default function SignInSide() {
   const [loginUser, { error }] = useMutation(LOGIN_USER);
   const handleSubmit = async (event) => {
@@ -149,7 +151,8 @@ export default function SignInSide() {
               alignItems: "flex-end", // Align the gallery with the second grid
             }}
           >
-            <UnsplashGallery /> {/* Use the UnsplashFitnessGallery component */}
+            {/* <UnsplashGallery />  */}
+            <WeightsGallery/>
           </Grid>
         </Grid>
       </Box>

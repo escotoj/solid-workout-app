@@ -124,6 +124,7 @@ const Exercise = () => {
     Search
   </Button>
 < UnsplashGallery/>
+{/* <WeightsGallery/> */}
 </div>
 
 
