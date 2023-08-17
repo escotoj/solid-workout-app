@@ -145,10 +145,10 @@ export default function SignInSide() {
             item
             xs={12}
             sm={6}
-            md={5} // Adjust the md value to control the width of the gallery
+            md={5} 
             sx={{
               display: "flex",
-              alignItems: "flex-end", // Align the gallery with the second grid
+              alignItems: "flex-end", 
             }}
           >
             {/* <UnsplashGallery />  */}

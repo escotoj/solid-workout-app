@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import InputLabel from '@mui/material/InputLabel';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import TextField from "@mui/material/TextField";
@@ -25,11 +20,6 @@ const WorkoutForm = ({ workoutId }) => {
   const [expirationDate, setExpirationDate] = useState('');
 
   const [noteText, setNoteText] = useState('');
-
-
-
-  // const [characterCount, setCharacterCount] = useState(0);
-
 
   const [createWorkout, { error }] = useMutation(ADD_WORKOUT);
 
@@ -66,7 +56,6 @@ const WorkoutForm = ({ workoutId }) => {
 
     if (name === 'workoutText' && value.length <= 280) {
       setWorkoutText(value);
-      // setCharacterCount(value.length);
       console.log(event);
     } else if (name === 'workoutTitle') {
       setWorkoutTitle(value);
@@ -92,7 +81,8 @@ const WorkoutForm = ({ workoutId }) => {
         sx={{
           marginTop: '1rem',
           boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
-          borderRadius: '4px',
+          borderRadius: '5px',
+          border: "5px double #6EC6CA",
           display: 'flex',
           justifyContent: 'center',
           backgroundColor: (t) =>
@@ -118,7 +108,7 @@ const WorkoutForm = ({ workoutId }) => {
           </Grid>
           {Auth.loggedIn() && (
             <>
-              <Grid item xs={12} lg={9} > 
+              <Grid item xs={12} lg={9}  > 
                 <TextField
                   margin="normal"
                   fullWidth
@@ -190,8 +180,6 @@ const WorkoutForm = ({ workoutId }) => {
                       alignSelf: "center",
                       width: "24vh",
                     }}
-                    // style={{ marginTop: '1rem' }}
-                    // onClick={handleFormSubmit}
                   >
                     Add Workout
                   </Button>

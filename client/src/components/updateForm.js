@@ -2,17 +2,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { UPDATE_WORKOUT } from './../utils/mutations';
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from '@mui/material';
-// import { makeStyles } from '@mui/styles';
 
-// const useStyles = makeStyles((theme) => ({
-//   form: {
-//     display: 'flex',
-//     flexDirection: 'column',
-//     '& > *': {
-//       margin: theme.spacing(1),
-//     },
-//   },
-// }));
 
 
 
@@ -23,7 +13,6 @@ const UpdateWorkoutForm = ({ workoutId, currentDetails, currentTitle, handleNavi
 
 
 
-  // const classes = useStyles();
   const handleSaveUpdate = async () => {
     try {
       await updateWorkout({ 

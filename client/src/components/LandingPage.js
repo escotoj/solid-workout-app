@@ -18,8 +18,6 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const useStyles = makeStyles((theme) => ({
   hero: {
-    // backgroundImage: 'url("")',
-    // backgroundSize: 'cover',
     textAlign: "center",
     padding: theme.spacing(1),
   },

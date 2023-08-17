@@ -47,17 +47,23 @@ const Log = () => {
 
   return (
     <Box className={classes.root}>
+      
       <Typography variant="h4" component="h1" gutterBottom>
         Log Your Gains
       </Typography>
 <FitnessCenterIcon fontSize="large" style={{color:"red"}}/>
-      <WorkoutForm/>
-
-      <Typography variant="h6" component="h1">
-        Page set up for users to log their workouts by adding data like Workout name, type, muscle and duration, and description/comments.
+<Box style={{marginTop: '20px'}}>
+<Typography variant="h6" component="h1">
+        Log and document all your hard work. 
 
 
       </Typography>
+</Box>
+
+
+      <WorkoutForm/>
+
+
 
    
       </Box>
