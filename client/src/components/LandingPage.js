@@ -89,8 +89,10 @@ variant="h4" gutterBottom sx={{ mt: 1, textAlign: "center" }}
         >
           <Card sx={{ maxWidth: 345 }}>
             <CardMedia
-              image="/static/images/cards/contemplative-reptile.jpg"
-              title="green iguana"
+    component="img"
+    alt="Exercise Search"
+    image="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHl4NWxyZTN6NTkyZWd4czk4NTM3NmVnbWJkMndpa2sydjA4N25nNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/R8dff5P3gAc6QJ3RqX/giphy.gif"
+    title="Exercise Search"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
@@ -111,13 +113,14 @@ This feature allows you to create a search for exercises based on target muscles
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            height: "30vh",
+            marginTop: "40px"
           }}
         >
           <Card sx={{ maxWidth: 345 }}>
             <CardMedia
-              image="/static/images/cards/contemplative-reptile.jpg"
-              title="green iguana"
+            component="img"
+              image="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWI2YXRjN3JydHVoc215a2RkZm15eWE2OTJxeWYwYzRmZzAxZmZhNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/p4dYDjx0i5ozcFlurC/giphy.gif"
+              title="Log your gains"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
