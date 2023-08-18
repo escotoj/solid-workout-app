@@ -20,6 +20,11 @@ Other Features:
 - [Credits](#Credits)
 - [Contact](#Contact)
 
+<img src="client/public/homeScreen.png" alt="Home Screen" width="300">
+<img src="client/public/Search.png" alt="Search Screen" width="300">
+<img src="client/public/API.png" alt="Search Screen" width="300">
+
+
 ## Technologies
 
 This application uses the following technologies:
@@ -50,23 +55,3 @@ GitHub: [escotoj](https://github.com/escotoj)
 - add floating action button to be in every page once logged in as a component
 - there is an error with the the way data is being saved (saves it as the previous day)
 - heroku deploy
-
-## GOT_TO_COMPLETE
-
-- ADD API that renders gym photos with unsplash at loggin and sign up, lanidng page. 
-- Date added to create and history
-- add material icons to each page. 
-- home page needs better styling. 
-- add notes to the history and addworkout   
-- need log out 
-- style the gains page
-- style the add_workout page. 
-- add a pop up modal that displays the entire data from exercise API
-- need to set up, the entire user model and workout models and link to the schemas.
-- do a seed
-- signup and log in work
-- add link to header to take you back to '/'
-- work on the user models for longin and sing up
-- Workouts Page - API can be made needs its own page. 
-- delete comment and just keep notes. 
-- navbar to render on the far left corner.
