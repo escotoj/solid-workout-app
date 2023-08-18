@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, Container} from "@material-ui/core";
+import { Box, Typography, Container } from "@material-ui/core";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
@@ -7,8 +7,7 @@ import Exercises from "./pages/Exercises";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 
-
-import History from "./pages/History"
+import History from "./pages/History";
 import Gains from "./pages/Gains";
 
 import LandingPage from "./components/LandingPage.js";
@@ -16,10 +15,8 @@ import LandingPage from "./components/LandingPage.js";
 function App() {
   const CodeDisplay = () => {
     return (
-      <div
-
-      >
-<LandingPage/>
+      <div>
+        <LandingPage />
       </div>
     );
   };

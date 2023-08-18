@@ -1,29 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import Container from "@mui/material/Container";
+import Button from "@mui/material/Button";
+import Tooltip from "@mui/material/Tooltip";
+import MenuItem from "@mui/material/MenuItem";
+import { Link } from "react-router-dom";
 
 const pages = [
-  { label: 'Home', path: '/'},
-  { label: 'Login', path: '/login' },
-  { label: 'Signup', path: '/signup' },
-  { label: 'Exercises', path: '/exercises' },
+  { label: "Home", path: "/" },
+  { label: "Login", path: "/login" },
+  { label: "Signup", path: "/signup" },
+  { label: "Exercises", path: "/exercises" },
 ];
 
 const settings = [
-  { label: 'Home', path: '/'},
-  { label: 'Gains', path: '/gains' },
-  { label: 'History', path: '/history' },
-  { label: 'Exercises', path: '/exercises' },
+  { label: "Home", path: "/" },
+  { label: "Gains", path: "/gains" },
+  { label: "History", path: "/history" },
+  { label: "Exercises", path: "/exercises" },
 ];
 
 export default function ResponsiveAppBar() {
@@ -32,7 +32,7 @@ export default function ResponsiveAppBar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    const userIsLoggedIn = Boolean(localStorage.getItem('id_token'));
+    const userIsLoggedIn = Boolean(localStorage.getItem("id_token"));
     setIsLoggedIn(userIsLoggedIn);
   }, []);
 
@@ -53,57 +53,65 @@ export default function ResponsiveAppBar() {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('id_token');
-    localStorage.removeItem('user_id');
-    localStorage.removeItem('username');
-    localStorage.removeItem('email');
+    localStorage.removeItem("id_token");
+    localStorage.removeItem("user_id");
+    localStorage.removeItem("username");
+    localStorage.removeItem("email");
 
     setIsLoggedIn(false);
 
-    window.location.href = '/login';
+    window.location.href = "/login";
   };
 
-  const navigationLinks = isLoggedIn ? [
-    { label: 'Home', path: '/' },
-    { label: 'Exercises', path: '/Exercises' },
-    { label: 'Gains', path: '/gains' },
-    { label: 'History', path: '/history' }
-  ] : pages;
+  const navigationLinks = isLoggedIn
+    ? [
+        { label: "Home", path: "/" },
+        { label: "Exercises", path: "/Exercises" },
+        { label: "Gains", path: "/gains" },
+        { label: "History", path: "/history" },
+      ]
+    : pages;
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: '#055B5C'}}>
-      <Container >
+    <AppBar position="static" sx={{ backgroundColor: "#055B5C" }}>
+      <Container>
         <div>
-
-          <Toolbar disablegutters="true" >
+          <Toolbar disablegutters="true">
             <Tooltip title="Home Page">
               <IconButton
                 component={Link}
                 to="/"
                 sx={{
-                  display: { xs: 'none', md: 'flex' },
-                  position: 'relative',
+                  display: { xs: "none", md: "flex" },
+                  position: "relative",
                   left: "-0.75rem",
                 }}
-              >
-              </IconButton>
+              ></IconButton>
             </Tooltip>
 
-            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'center' }, minWidth: '35rem', marginLeft: '30rem', marginRight: '30rem',  }}>
+            <Box
+              sx={{
+                flexGrow: 1,
+                display: { xs: "none", md: "flex", justifyContent: "center" },
+                minWidth: "35rem",
+                marginLeft: "30rem",
+                marginRight: "30rem",
+              }}
+            >
               {navigationLinks.map((page) => (
                 <Button
                   key={page.label}
                   component={Link}
                   to={page.path}
                   sx={{
-                    color: '#f2f2f2',
-                    display: 'block',
-                    fontSize: '1.1rem',
-                    '&:hover': {
-                      fontWeight: 'bold',
-                      color: '#ffffff',
-                      textShadow: '0 0 1px #ffffff',
-                      border: '1px solid #b2aa9d',
+                    color: "#f2f2f2",
+                    display: "block",
+                    fontSize: "1.1rem",
+                    "&:hover": {
+                      fontWeight: "bold",
+                      color: "#ffffff",
+                      textShadow: "0 0 1px #ffffff",
+                      border: "1px solid #b2aa9d",
                     },
                   }}
                 >
@@ -112,40 +120,45 @@ export default function ResponsiveAppBar() {
               ))}
             </Box>
 
-            <Box id="navBarSignOut" sx={{ flexGrow: 1, display: 'flex', alignItems: 'center' }}>
+            <Box
+              id="navBarSignOut"
+              sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}
+            >
               {isLoggedIn ? (
                 <Tooltip title="Sign Out">
                   <Button
                     onClick={handleLogout}
                     sx={{
-                      fontSize: '1.5rem',
+                      fontSize: "1.5rem",
                       p: 0,
-                      marginRight: '-1rem',
-                      color: '#ffffff',
-                      minWidth: '8rem',
-                      background: 'transparent',
-                      position: 'absolute',
-                      padding: '0.25rem, 0',
-                      borderRadius: '0.5rem',
+                      marginRight: "-1rem",
+                      color: "#ffffff",
+                      minWidth: "8rem",
+                      background: "transparent",
+                      position: "absolute",
+                      padding: "0.25rem, 0",
+                      borderRadius: "0.5rem",
                       right: 0,
-                      '&:hover': {
-                        fontWeight: '800',
-                        fontSize: '1.75rem',
-                        color: '#ffffff',
-                        textShadow: '0 0 1px #ffffff, 0 0 2px #ffffff, 0 0 3px #ffffff',
-                        border: '1px solid #b2aa9d',
-                      }
+                      "&:hover": {
+                        fontWeight: "800",
+                        fontSize: "1.75rem",
+                        color: "#ffffff",
+                        textShadow:
+                          "0 0 1px #ffffff, 0 0 2px #ffffff, 0 0 3px #ffffff",
+                        border: "1px solid #b2aa9d",
+                      },
                     }}
                   >
                     <Typography
                       style={{
-                        fontSize: '1.25rem',
-                        '&:hover': {
-                          fontStyle: 'bold',
-                        }
+                        fontSize: "1.25rem",
+                        "&:hover": {
+                          fontStyle: "bold",
+                        },
                       }}
                       alt="Sign Out"
-                    >Sign Out
+                    >
+                      Sign Out
                     </Typography>
                   </Button>
                 </Tooltip>
@@ -154,13 +167,13 @@ export default function ResponsiveAppBar() {
                   component={Link}
                   to="/login"
                   sx={{
-                    fontSize: '1.1rem',
-                    color: '#f2f2f2',
-                    '&:hover': {
-                      fontWeight: 'bold',
-                      color: '#ffffff',
-                      textShadow: '0 0 1px #ffffff',
-                      border: '1px solid #b2aa9d',
+                    fontSize: "1.1rem",
+                    color: "#f2f2f2",
+                    "&:hover": {
+                      fontWeight: "bold",
+                      color: "#ffffff",
+                      textShadow: "0 0 1px #ffffff",
+                      border: "1px solid #b2aa9d",
                     },
                   }}
                 >
@@ -168,25 +181,23 @@ export default function ResponsiveAppBar() {
                 </Button>
               )}
               <Menu
-                sx={{ mt: '45px' }}
+                sx={{ mt: "45px" }}
                 id="menu-appbar"
                 anchorEl={anchorElUser}
                 anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
+                  vertical: "top",
+                  horizontal: "right",
                 }}
                 keepMounted
                 transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
+                  vertical: "top",
+                  horizontal: "right",
                 }}
                 open={Boolean(anchorElUser)}
-              >
-
-              </Menu>
+              ></Menu>
             </Box>
 
-            <Box sx={{ flexGrow: 1, display: { xs: 'block', md: 'none' } }}>
+            <Box sx={{ flexGrow: 1, display: { xs: "block", md: "none" } }}>
               <IconButton
                 size="large"
                 aria-label="account of current user"
@@ -195,29 +206,38 @@ export default function ResponsiveAppBar() {
                 onClick={handleOpenNavMenu}
                 color="inherit"
               >
-                <MenuIcon fontSize='large'/>
+                <MenuIcon fontSize="large" />
               </IconButton>
               <Menu
                 id="menu-appbar"
                 anchorEl={anchorElNav}
                 anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'left',
+                  vertical: "bottom",
+                  horizontal: "left",
                 }}
                 keepMounted
                 transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left',
+                  vertical: "top",
+                  horizontal: "left",
                 }}
                 open={Boolean(anchorElNav)}
                 onClose={handleCloseNavMenu}
                 sx={{
-                  display: { xs: 'block', md: 'none' },
+                  display: { xs: "block", md: "none" },
                 }}
               >
                 {navigationLinks.map((page) => (
                   <MenuItem key={page.label} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center" component={Link} to={page.path} style={{ fontWeight: 'bold', textDecoration: 'none', color: 'inherit' }}>
+                    <Typography
+                      textAlign="center"
+                      component={Link}
+                      to={page.path}
+                      style={{
+                        fontWeight: "bold",
+                        textDecoration: "none",
+                        color: "inherit",
+                      }}
+                    >
                       {page.label}
                     </Typography>
                   </MenuItem>
@@ -232,11 +252,10 @@ export default function ResponsiveAppBar() {
               href=""
               sx={{
                 mr: 2,
-                display: { xs: 'flex', md: 'none' },
+                display: { xs: "flex", md: "none" },
                 flexGrow: 1,
               }}
-            >
-            </Typography>
+            ></Typography>
           </Toolbar>
         </div>
       </Container>

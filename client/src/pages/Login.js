@@ -15,7 +15,7 @@ import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 import auth from "../utils/auth";
 
-import UnsplashGallery from "../components/FitnessPhotos"
+// import UnsplashGallery from "../components/FitnessPhotos";
 
 import WeightsGallery from "../components/WeightsPhotos";
 
@@ -26,28 +26,27 @@ export default function SignInSide() {
     const formData = new FormData(event.currentTarget);
     const formDataVariables = {
       email: formData.get("email"),
-      password: formData.get("password")
-    }
+      password: formData.get("password"),
+    };
     console.log(formDataVariables);
     try {
       const { data } = await loginUser({
         variables: {
-          ...formDataVariables
-        }
-      })
+          ...formDataVariables,
+        },
+      });
       console.log(data);
       auth.login(data.login.token);
     } catch (e) {
-      console.error(e)
+      console.error(e);
     }
   };
 
   return (
     <Container component="main" maxWidth="lg" minHeight="60vh">
-      <Box sx={{ marginTop: "8vh" }} >
-        <Grid container >
+      <Box sx={{ marginTop: "8vh" }}>
+        <Grid container>
           <CssBaseline />
-
 
           <Grid
             item
@@ -60,8 +59,9 @@ export default function SignInSide() {
             sx={{
               borderRadius: "1rem 0 0 1rem",
               opacity: 0.86,
-              background: "linear-gradient(0.625turn, rgba(203, 211, 255, 0.75), rgba(195, 214, 247, 0.75))",
-              boxShadow: " 3px 3px 3px #7b8782"
+              background:
+                "linear-gradient(0.625turn, rgba(203, 211, 255, 0.75), rgba(195, 214, 247, 0.75))",
+              boxShadow: " 3px 3px 3px #7b8782",
             }}
           >
             <Box
@@ -73,8 +73,9 @@ export default function SignInSide() {
                 alignItems: "center",
               }}
             >
-              
-              <Typography component="h1" variant="h5"
+              <Typography
+                component="h1"
+                variant="h5"
                 sx={{
                   fontWeight: "400",
                   fontSize: "2.5rem",
@@ -118,16 +119,18 @@ export default function SignInSide() {
                   label="Remember me"
                 />
                 <Button
-                          type="submit"
-                          variant="contained"
-                          sx={{ mt: 3, mb: 2,
-                            alignSelf: "center",
-                            width: "24vh",
-                            background: "linear-gradient(0.305turn, #535d9a, #9fb4d7)",
-                            '&:hover': {
-                              background: "linear-gradient(0.3turn, #6a77bf, #bacff2)",
-                            }
-                            }}
+                  type="submit"
+                  variant="contained"
+                  sx={{
+                    mt: 3,
+                    mb: 2,
+                    alignSelf: "center",
+                    width: "24vh",
+                    background: "linear-gradient(0.305turn, #535d9a, #9fb4d7)",
+                    "&:hover": {
+                      background: "linear-gradient(0.3turn, #6a77bf, #bacff2)",
+                    },
+                  }}
                 >
                   Log in
                 </Button>
@@ -145,14 +148,14 @@ export default function SignInSide() {
             item
             xs={12}
             sm={6}
-            md={5} 
+            md={5}
             sx={{
               display: "flex",
-              alignItems: "flex-end", 
+              alignItems: "flex-end",
             }}
           >
             {/* <UnsplashGallery />  */}
-            <WeightsGallery/>
+            <WeightsGallery />
           </Grid>
         </Grid>
       </Box>

@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Box,
-  Typography
-} from "@material-ui/core";
+import { Box, Typography } from "@material-ui/core";
 
-import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
+import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import WorkoutForm from "../components/addWorkout";
 
 const useStyles = makeStyles((theme) => ({
@@ -34,7 +32,6 @@ const Log = () => {
   const [inputValue, setInputValue] = useState("");
   const [submittedValue, setSubmittedValue] = useState("");
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmittedValue(inputValue);
@@ -47,26 +44,18 @@ const Log = () => {
 
   return (
     <Box className={classes.root}>
-      
       <Typography variant="h4" component="h1" gutterBottom>
         Log Your Gains
       </Typography>
-<FitnessCenterIcon fontSize="large" style={{color:"red"}}/>
-<Box style={{marginTop: '20px'}}>
-<Typography variant="h6" component="h1">
-        Log and document all your hard work. 
-
-
-      </Typography>
-</Box>
-
-
-      <WorkoutForm/>
-
-
-
-   
+      <FitnessCenterIcon fontSize="large" style={{ color: "red" }} />
+      <Box style={{ marginTop: "20px" }}>
+        <Typography variant="h6" component="h1">
+          Log and document all your hard work.
+        </Typography>
       </Box>
+
+      <WorkoutForm />
+    </Box>
   );
 };
 

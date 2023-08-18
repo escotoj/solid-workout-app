@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import UpdateWorkoutForm from '../components/updateForm';
-import { useNavigate } from 'react-router-dom';
-import { Button } from '@mui/material';
+import React, { useState } from "react";
+import UpdateWorkoutForm from "../components/updateForm";
+import { useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
 
 const UpdateWorkoutButton = ({ workoutId, newDetails, newTitle }) => {
   const [showForm, setShowForm] = useState(false);
@@ -9,7 +9,7 @@ const UpdateWorkoutButton = ({ workoutId, newDetails, newTitle }) => {
   const navigate = useNavigate();
 
   const handleNavigateToMyCard = () => {
-    navigate('/gains');
+    navigate("/gains");
   };
 
   const handleOpenForm = () => {

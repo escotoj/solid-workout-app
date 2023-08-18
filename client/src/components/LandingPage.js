@@ -1,5 +1,5 @@
 import React from "react";
-import { Link as RouterLink,  } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -12,9 +12,7 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 
-
-
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
 const useStyles = makeStyles((theme) => ({
   hero: {
@@ -40,7 +38,9 @@ const LandingPage = () => {
           <Grid justifyContent="center">
             <Grid item xs={12} md={12}>
               <Typography
-variant="h4" gutterBottom sx={{ mt: 1, textAlign: "center" }}
+                variant="h4"
+                gutterBottom
+                sx={{ mt: 1, textAlign: "center" }}
               >
                 Welcome to
               </Typography>
@@ -55,7 +55,7 @@ variant="h4" gutterBottom sx={{ mt: 1, textAlign: "center" }}
               >
                 Solid Workout
               </Typography>
-              <FavoriteIcon fontSize="large" style={{color:"red"}}/>
+              <FavoriteIcon fontSize="large" style={{ color: "red" }} />
               <Typography variant="h6" color="#00000" paragraph>
                 Your go-to platform for achieving your fitness and health gains.
               </Typography>
@@ -73,10 +73,20 @@ variant="h4" gutterBottom sx={{ mt: 1, textAlign: "center" }}
         </Container>
       </Box>
       <Container className={classes.content} maxWidth="md">
-        <Typography variant="h4" align="center" gutterBottom style={{ marginBottom:'5%'}}>
+        <Typography
+          variant="h4"
+          align="center"
+          gutterBottom
+          style={{ marginBottom: "5%" }}
+        >
           Our Features
         </Typography>
-        <Typography variant="body1" align="center" paragraph style={{ marginBottom:'5%'}} >
+        <Typography
+          variant="body1"
+          align="center"
+          paragraph
+          style={{ marginBottom: "5%" }}
+        >
           Explore the features that will help you on your fitness journey.
         </Typography>
 
@@ -89,21 +99,24 @@ variant="h4" gutterBottom sx={{ mt: 1, textAlign: "center" }}
         >
           <Card sx={{ maxWidth: 345 }}>
             <CardMedia
-    component="img"
-    alt="Exercise Search"
-    image="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHl4NWxyZTN6NTkyZWd4czk4NTM3NmVnbWJkMndpa2sydjA4N25nNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/R8dff5P3gAc6QJ3RqX/giphy.gif"
-    title="Exercise Search"
+              component="img"
+              alt="Exercise Search"
+              image="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHl4NWxyZTN6NTkyZWd4czk4NTM3NmVnbWJkMndpa2sydjA4N25nNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/R8dff5P3gAc6QJ3RqX/giphy.gif"
+              title="Exercise Search"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-              Exercise Search
+                Exercise Search
               </Typography>
               <Typography variant="body2" color="#055B5C">
-This feature allows you to create a search for exercises based on target muscles. 
+                This feature allows you to create a search for exercises based
+                on target muscles.
               </Typography>
             </CardContent>
             <CardActions>
-              <Button component={RouterLink} to="./Exercises" size="small">Learn More</Button>
+              <Button component={RouterLink} to="./Exercises" size="small">
+                Learn More
+              </Button>
             </CardActions>
           </Card>
         </Box>
@@ -113,12 +126,12 @@ This feature allows you to create a search for exercises based on target muscles
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            marginTop: "40px"
+            marginTop: "40px",
           }}
         >
           <Card sx={{ maxWidth: 345 }}>
             <CardMedia
-            component="img"
+              component="img"
               image="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWI2YXRjN3JydHVoc215a2RkZm15eWE2OTJxeWYwYzRmZzAxZmZhNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/p4dYDjx0i5ozcFlurC/giphy.gif"
               title="Log your gains"
             />
@@ -127,11 +140,14 @@ This feature allows you to create a search for exercises based on target muscles
                 Log Your Gains
               </Typography>
               <Typography variant="body2" color="#055B5C">
-                This feature that allows you to keep track of your workout history. 
+                This feature that allows you to keep track of your workout
+                history.
               </Typography>
             </CardContent>
             <CardActions>
-              <Button component={RouterLink} to="./Gains" size="small">Learn More</Button>
+              <Button component={RouterLink} to="./Gains" size="small">
+                Learn More
+              </Button>
             </CardActions>
           </Card>
         </Box>

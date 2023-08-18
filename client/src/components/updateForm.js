@@ -1,40 +1,49 @@
-import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
-import { UPDATE_WORKOUT } from './../utils/mutations';
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from '@mui/material';
+import React, { useState } from "react";
+import { useMutation } from "@apollo/client";
+import { UPDATE_WORKOUT } from "./../utils/mutations";
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  TextField,
+} from "@mui/material";
 
-
-
-
-const UpdateWorkoutForm = ({ workoutId, currentDetails, currentTitle, handleNavigateToMyCard, open, handleClose }) => {
+const UpdateWorkoutForm = ({
+  workoutId,
+  currentDetails,
+  currentTitle,
+  handleNavigateToMyCard,
+  open,
+  handleClose,
+}) => {
   const [newDetails, setNewDetails] = useState(currentDetails);
   const [newTitle, setNewTitle] = useState(currentTitle);
-  const [updateWorkout, { loading: updating, error: updateError }] = useMutation(UPDATE_WORKOUT);
-
-
+  const [updateWorkout, { loading: updating, error: updateError }] =
+    useMutation(UPDATE_WORKOUT);
 
   const handleSaveUpdate = async () => {
     try {
-      await updateWorkout({ 
-        variables: { 
-          workoutId: workoutId, 
+      await updateWorkout({
+        variables: {
+          workoutId: workoutId,
           title: newTitle,
           details: newDetails,
-        } 
+        },
       });
       console.log("Workout updated successfully");
-      window.location.reload(true)
+      window.location.reload(true);
     } catch (error) {
       console.error("Error updating Workout", error);
     }
   };
 
-
   return (
     <div>
       <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth>
         <DialogTitle>Edit Workout</DialogTitle>
-        <DialogContent >
+        <DialogContent>
           <form>
             <TextField
               label="Title"
@@ -42,7 +51,12 @@ const UpdateWorkoutForm = ({ workoutId, currentDetails, currentTitle, handleNavi
               id="title"
               value={newTitle}
               onChange={(e) => setNewTitle(e.target.value)}
-              sx={{ mt: 4, display: 'flex', flexDirection: 'column', gap: '8px' }}
+              sx={{
+                mt: 4,
+                display: "flex",
+                flexDirection: "column",
+                gap: "8px",
+              }}
             />
             <TextField
               label="Details"
@@ -50,7 +64,12 @@ const UpdateWorkoutForm = ({ workoutId, currentDetails, currentTitle, handleNavi
               id="details"
               value={newDetails}
               onChange={(e) => setNewDetails(e.target.value)}
-              sx={{ mt: 4, display: 'flex', flexDirection: 'column', gap: '8px' }}
+              sx={{
+                mt: 4,
+                display: "flex",
+                flexDirection: "column",
+                gap: "8px",
+              }}
             />
           </form>
         </DialogContent>
@@ -58,7 +77,11 @@ const UpdateWorkoutForm = ({ workoutId, currentDetails, currentTitle, handleNavi
           <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={handleSaveUpdate} variant="contained" color="success">
+          <Button
+            onClick={handleSaveUpdate}
+            variant="contained"
+            color="success"
+          >
             Save Update
           </Button>
         </DialogActions>

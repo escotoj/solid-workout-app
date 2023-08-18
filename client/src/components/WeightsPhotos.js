@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Card, CardMedia, Grid, CircularProgress } from '@material-ui/core';
+import React, { useState, useEffect } from "react";
+import { Card, CardMedia, Grid, CircularProgress } from "@material-ui/core";
 
 const UnsplashWeightsGallery = () => {
   const [photoData, setPhotoData] = useState({});
@@ -8,20 +8,25 @@ const UnsplashWeightsGallery = () => {
   const fetchFitnessPhoto = async () => {
     const accessKey = process.env.REACT_APP_UNSPLASH_KEY;
     try {
-      const response = await fetch('https://api.unsplash.com/search/photos/?query=weights', {
-        headers: {
-          Authorization: `Client-ID ${accessKey}`,
-        },
-      });
+      const response = await fetch(
+        "https://api.unsplash.com/search/photos/?query=weights",
+        {
+          headers: {
+            Authorization: `Client-ID ${accessKey}`,
+          },
+        }
+      );
       const responseData = await response.json();
       if (responseData.results && responseData.results.length > 0) {
-        const randomIndex = Math.floor(Math.random() * responseData.results.length);
-        console.log(responseData.results)
+        const randomIndex = Math.floor(
+          Math.random() * responseData.results.length
+        );
+        console.log(responseData.results);
         setPhotoData(responseData.results[randomIndex]);
       }
       setLoading(false);
     } catch (error) {
-      console.error('Error fetching data:', error);
+      console.error("Error fetching data:", error);
       setLoading(false);
     }
   };

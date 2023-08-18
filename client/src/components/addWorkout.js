@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -9,18 +9,18 @@ import { Container } from "@mui/material";
 import { Grid } from "@mui/material";
 import { Button, Alert } from "@mui/material";
 
-import { ADD_WORKOUT } from '../utils/mutations';
+import { ADD_WORKOUT } from "../utils/mutations";
 
-import Auth from '../utils/auth';
+import Auth from "../utils/auth";
 
 const WorkoutForm = ({ workoutId }) => {
   const [workoutAdded, setWorkoutAdded] = useState(false);
 
-  const [workoutTitle, setWorkoutTitle] = useState('');
-  const [workoutText, setWorkoutText] = useState('');
-  const [expirationDate, setExpirationDate] = useState('');
+  const [workoutTitle, setWorkoutTitle] = useState("");
+  const [workoutText, setWorkoutText] = useState("");
+  const [expirationDate, setExpirationDate] = useState("");
 
-  const [noteText, setNoteText] = useState('');
+  const [noteText, setNoteText] = useState("");
 
   const [createWorkout, { error }] = useMutation(ADD_WORKOUT);
 
@@ -37,17 +37,15 @@ const WorkoutForm = ({ workoutId }) => {
           date: expirationDate,
           notes: noteText,
           workoutAuthor: Auth.getProfile().data.username,
-        }
+        },
       });
 
-      setWorkoutTitle('');
-      setWorkoutText('');
-      setNoteText('');
-      setExpirationDate('');
-      console.log(data)
-      setWorkoutAdded(true)
-      // alert('Workout Added');
-            // navigate('/history');
+      setWorkoutTitle("");
+      setWorkoutText("");
+      setNoteText("");
+      setExpirationDate("");
+      console.log(data);
+      setWorkoutAdded(true);
     } catch (err) {
       console.error(err);
     }
@@ -56,70 +54,76 @@ const WorkoutForm = ({ workoutId }) => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'workoutText' && value.length <= 280) {
+    if (name === "workoutText" && value.length <= 280) {
       setWorkoutText(value);
       console.log(event);
-    } else if (name === 'workoutTitle') {
+    } else if (name === "workoutTitle") {
       setWorkoutTitle(value);
-    } else if (name === 'expirationDate') {
+    } else if (name === "expirationDate") {
       setExpirationDate(value);
-    } else if (name === 'noteText') {
+    } else if (name === "noteText") {
       setNoteText(value);
-    } 
+    }
   };
 
   const formattedDate = (date) => {
     const formatted = new Date(date);
-    const mm = String(formatted.getMonth() + 1).padStart(2, "0"); 
+    const mm = String(formatted.getMonth() + 1).padStart(2, "0");
     const dd = String(formatted.getDate() + 1).padStart(2, "0");
     const yy = String(formatted.getFullYear()).slice(-2);
 
     return `${mm}/${dd}/${yy}`;
   };
-  
+
   return (
     <Container component="main" maxWidth="lg">
       <Box
         sx={{
-          marginTop: '1rem',
-          boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
-          borderRadius: '5px',
+          marginTop: "1rem",
+          boxShadow: "0 2px 4px rgba(0, 0, 0, 0.2)",
+          borderRadius: "5px",
           border: "5px double #6EC6CA",
-          display: 'flex',
-          justifyContent: 'center',
+          display: "flex",
+          justifyContent: "center",
           backgroundColor: (t) =>
-          t.palette.mode === "light"
-            ? t.palette.grey[50]
-            : t.palette.grey[900]
+            t.palette.mode === "light"
+              ? t.palette.grey[50]
+              : t.palette.grey[900],
         }}
       >
-        <Grid container justifyContent="center" margin='15px' > 
-          <Grid item xs={12}> 
+        <Grid container justifyContent="center" margin="15px">
+          <Grid item xs={12}>
             <Typography
               variant="h4"
               sx={{
                 fontSize: "2rem",
-           
+
                 marginTop: "1vh",
                 textAlign: "center",
                 textShadow: "2px 2px 2px #a7a59e",
               }}
-            >
-             
-            </Typography>
+            ></Typography>
           </Grid>
           {Auth.loggedIn() && (
             <>
-              <Grid item xs={12} lg={9}  > 
-              {workoutAdded && (
-  <Alert severity="success" sx={{ mx: 2, mb: 2,           display: 'flex',
-  justifyContent: 'center', }}>
-  Great Workout<br />
-  <Link to="/history" style={{ textDecoration: 'none' }}>
-    View Here
-  </Link>
-  </Alert>
-)}
+              <Grid item xs={12} lg={9}>
+                {workoutAdded && (
+                  <Alert
+                    severity="success"
+                    sx={{
+                      mx: 2,
+                      mb: 2,
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
+                  >
+                    Great Workout
+                    <br />
+                    <Link to="/history" style={{ textDecoration: "none" }}>
+                      View Here
+                    </Link>
+                  </Alert>
+                )}
                 <TextField
                   margin="normal"
                   fullWidth
@@ -132,7 +136,6 @@ const WorkoutForm = ({ workoutId }) => {
                   onChange={handleChange}
                   name="workoutTitle"
                 />
-
 
                 <TextField
                   margin="normal"
@@ -162,24 +165,22 @@ const WorkoutForm = ({ workoutId }) => {
                   variant="outlined"
                 />
 
-    <div  marginTop={'10px'}>
-      <TextField
-        type="date"
-        name="expirationDate"
-        value={expirationDate}
-        className="form-input w-100"
-        onChange={handleChange}
-       style={{ marginTop: '10px'}}
-      />
-      {/* {expirationDate && (
+                <div marginTop={"10px"}>
+                  <TextField
+                    type="date"
+                    name="expirationDate"
+                    value={expirationDate}
+                    className="form-input w-100"
+                    onChange={handleChange}
+                    style={{ marginTop: "10px" }}
+                  />
+                  {/* {expirationDate && (
         <p>Formatted Date: {formattedDate(expirationDate)}</p>
       )} */}
-    </div>
-
+                </div>
               </Grid>
 
-              <Grid item xs={12} sm={6} md={8}> 
-
+              <Grid item xs={12} sm={6} md={8}>
                 <Link onClick={handleFormSubmit}>
                   <Button
                     type="submit"
@@ -195,8 +196,6 @@ const WorkoutForm = ({ workoutId }) => {
                     Add Workout
                   </Button>
                 </Link>
-
-
 
                 <form
                   className="flex-row justify-center justify-space-between-md align-center"

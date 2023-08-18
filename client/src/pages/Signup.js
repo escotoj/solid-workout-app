@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
-import { ADD_USER } from '../utils/mutations';
+import React, { useState } from "react";
+import { useMutation } from "@apollo/client";
+import { ADD_USER } from "../utils/mutations";
 
-import Auth from '../utils/auth';
+import Auth from "../utils/auth";
 
 import {
   Button,
@@ -23,9 +23,9 @@ const theme = createTheme();
 
 const Signup = () => {
   const [formState, setFormState] = useState({
-    username: '',
-    email: '',
-    password: '',
+    username: "",
+    email: "",
+    password: "",
   });
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
@@ -52,21 +52,21 @@ const Signup = () => {
     }
   };
 
-  
-
   return (
     <ThemeProvider theme={theme}>
       <MuiContainer
         component="main"
         maxWidth="lg"
         sx={{
-          backgroundImage: "url(https://picsum.photos/1900/1400)", 
+          backgroundImage: "url(https://picsum.photos/1900/1400)",
           backgroundRepeat: "no-repeat",
           backgroundColor: (t) =>
-            t.palette.mode === "light" ? t.palette.grey[50] : t.palette.grey[900],
+            t.palette.mode === "light"
+              ? t.palette.grey[50]
+              : t.palette.grey[900],
           backgroundSize: "cover",
           backgroundPosition: "center",
-          minHeight: "100vh", 
+          minHeight: "100vh",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -85,19 +85,29 @@ const Signup = () => {
             boxShadow: 10,
             opacity: 0.95,
             borderRadius: "1rem",
-            background: "linear-gradient(0.625turn, rgba(203, 211, 255, 0.9), rgba(195, 214, 247, 0.9))",
-            boxShadow: " 3px 3px 3px #7b8782"
+            background:
+              "linear-gradient(0.625turn, rgba(203, 211, 255, 0.9), rgba(195, 214, 247, 0.9))",
+            boxShadow: " 3px 3px 3px #7b8782",
           }}
         >
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <Typography component="h1" variant="h5"
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <Typography
+              component="h1"
+              variant="h5"
               sx={{
                 fontWeight: "400",
                 fontSize: "2.5rem",
                 fontFamily: "Calibri, Roboto, Helvetica, Arial, sans-serif",
                 marginTop: "0vh",
                 marginBottom: "1vh",
-              }}>
+              }}
+            >
               Sign up
             </Typography>
           </div>
@@ -153,13 +163,14 @@ const Signup = () => {
                 type="submit"
                 variant="contained"
                 sx={{
-                  mt: 3, mb: 2,
+                  mt: 3,
+                  mb: 2,
                   alignSelf: "center",
                   width: "24vh",
                   background: "linear-gradient(0.305turn, #53759a, #9fbdd7)",
-                  '&:hover': {
+                  "&:hover": {
                     background: "linear-gradient(0.305turn, #6a85bf, #babff2)",
-                  }
+                  },
                 }}
               >
                 Sign Up
@@ -174,9 +185,7 @@ const Signup = () => {
             </form>
           )}
           {error && (
-            <div className="my-3 p-3 bg-danger text-white">
-              {error.message}
-            </div>
+            <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
           )}
         </Box>
       </MuiContainer>
