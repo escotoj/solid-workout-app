@@ -22,7 +22,7 @@ Other Features:
 
 <img src="client/public/homeScreen.png" alt="Home Screen" width="300">
 <img src="client/public/Search.png" alt="Search Screen" width="300">
-<img src="client/public/API.png" alt="Search Screen" width="300">
+<img src="client/public/API.png" alt="Search Result" width="300">
 
 
 ## Technologies
@@ -52,6 +52,11 @@ GitHub: [escotoj](https://github.com/escotoj)
 
 ## GET_TODO 
 
-- add floating action button to be in every page once logged in as a component
-- there is an error with the the way data is being saved (saves it as the previous day)
+- there is an error with the the way data is being saved (saves it as the previous day) singleworkoutdata
+- replace all alerts with modals 
+
 - heroku deploy
+
+## Future Developments
+
+- Add floating action button to be in every page once logged in as a component

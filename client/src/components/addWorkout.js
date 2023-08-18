@@ -7,13 +7,14 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { Container } from "@mui/material";
 import { Grid } from "@mui/material";
-import { Button } from "@mui/material";
+import { Button, Alert } from "@mui/material";
 
 import { ADD_WORKOUT } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
 const WorkoutForm = ({ workoutId }) => {
+  const [workoutAdded, setWorkoutAdded] = useState(false);
 
   const [workoutTitle, setWorkoutTitle] = useState('');
   const [workoutText, setWorkoutText] = useState('');
@@ -44,8 +45,9 @@ const WorkoutForm = ({ workoutId }) => {
       setNoteText('');
       setExpirationDate('');
       console.log(data)
-      alert('Workout Added');
-            navigate('/history');
+      setWorkoutAdded(true)
+      // alert('Workout Added');
+            // navigate('/history');
     } catch (err) {
       console.error(err);
     }
@@ -109,6 +111,15 @@ const WorkoutForm = ({ workoutId }) => {
           {Auth.loggedIn() && (
             <>
               <Grid item xs={12} lg={9}  > 
+              {workoutAdded && (
+  <Alert severity="success" sx={{ mx: 2, mb: 2,           display: 'flex',
+  justifyContent: 'center', }}>
+  Great Workout<br />
+  <Link to="/history" style={{ textDecoration: 'none' }}>
+    View Here
+  </Link>
+  </Alert>
+)}
                 <TextField
                   margin="normal"
                   fullWidth
@@ -160,9 +171,9 @@ const WorkoutForm = ({ workoutId }) => {
         onChange={handleChange}
        style={{ marginTop: '10px'}}
       />
-      {expirationDate && (
+      {/* {expirationDate && (
         <p>Formatted Date: {formattedDate(expirationDate)}</p>
-      )}
+      )} */}
     </div>
 
               </Grid>
@@ -184,6 +195,7 @@ const WorkoutForm = ({ workoutId }) => {
                     Add Workout
                   </Button>
                 </Link>
+
 
 
                 <form

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_ME, QUERY_SINGLE_WORKOUT } from "../utils/queries";
 import { REMOVE_WORKOUT } from "../utils/mutations";
-import { Typography, Paper, Box, Button, Card } from "@mui/material";
+import { Typography, Paper, Box, Button, Card, Alert, AlertTitle} from "@mui/material";
 
 import UpdateWorkoutButton from "../components/UpdateWorkoutButton";
 import RemoveWorkoutButton from "../components/RemoveWorkoutBtn";
@@ -10,14 +10,19 @@ import RemoveWorkoutButton from "../components/RemoveWorkoutBtn";
 import UpdateWorkoutForm from "../components/updateForm";
 
 import HistoryIcon from '@mui/icons-material/History';
+import { Link } from "react-router-dom";
 
 const MyWorkout = () => {
+  
   const [singleWorkout, setSingleWorkout] = useState(null);
   const detailsRef = useRef(null);
   const [workoutToUpdate, setWorkoutToUpdate] = useState(null);
   const [selectedWorkoutId, setSelectedWorkoutId] = useState(null);
   const { loading, error, data } = useQuery(GET_ME);
   const [userWorkouts, setUserWorkouts] = useState([]);
+
+const [showAlert, setShowAlert] = useState(false);
+const [removeButtonClicked, setRemoveButtonClicked] = useState(false);
 
   const [removeWorkout] = useMutation(REMOVE_WORKOUT, {
     refetchQueries: [{ query: GET_ME }],
@@ -27,7 +32,9 @@ const MyWorkout = () => {
     console.log("Data from GET_ME:", data);
     if (data?.me.workouts) {
       setUserWorkouts(data.me.workouts);
+      // setShowAlert(true); 
     }
+    
   }, [data]);
 
   const {
@@ -62,8 +69,10 @@ const MyWorkout = () => {
     if (data?.removeWorkout) {
       console.log(`Received updated user from server: `, data.removeWorkout);
       setUserWorkouts(data.removeWorkout.workouts);
-      window.alert("Successful Delete");
-      window.location.reload();
+      setShowAlert(true); // Show the alert when successful delete
+      setRemoveButtonClicked(true); 
+      // window.alert("Successful Delete");
+      // window.location.reload();
       console.log(`Updated userWorkouts state: `, data.removeWorkout.workouts);
     } else {
       console.log(`No updated user received from server.`);
@@ -206,9 +215,32 @@ const MyWorkout = () => {
                         sx={{ mt: 8, textAlign: "end", paddingRight: "20%" }}
                       ></Box>
 
+        <Box sx={{ display: "flex", justifyContent: "center", marginBottom: '25px'}}
+                      >
+                                            {removeButtonClicked && showAlert && (
+            <Alert severity="warning">
+         This Workout is No More —{" "}
+            <strong>
+              <Link
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location.reload();
+                }}
+                style={{ textDecoration: 'none'}}
+              >
+                Please Refresh Page
+              </Link>
+            </strong>
+          </Alert>
+          )}
+          </Box>
+   
+
                       <Box
                         style={{ display: "flex", justifyContent: "center" }}
                       >
+                        
                         <UpdateWorkoutButton
                           workoutId={singleWorkout._id}
                           newDetails={singleWorkout.details}
@@ -223,9 +255,28 @@ const MyWorkout = () => {
                       >
                         <RemoveWorkoutButton
                           workoutId={singleWorkout._id}
-                          onRemove={handleRemoveWorkout}
-                        />
+                          onRemove={() => {
+                            handleRemoveWorkout(singleWorkout._id);
+                          }}                        />
                       </Box>
+                      {/* {removeButtonClicked && showAlert && (
+            <Alert severity="warning">
+            <AlertTitle>Deleted</AlertTitle>
+            This Workout is No More —{" "}
+            <strong>
+              <Link
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location.reload();
+                }}
+                style={{ textDecoration: 'none'}}
+              >
+                Please Refresh Page
+              </Link>
+            </strong>
+          </Alert>
+          )} */}
                     </div>
                   </Card>
                 )}
