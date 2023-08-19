@@ -133,7 +133,7 @@ const LandingPage = () => {
             <CardMedia
               component="img"
               image="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWI2YXRjN3JydHVoc215a2RkZm15eWE2OTJxeWYwYzRmZzAxZmZhNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/p4dYDjx0i5ozcFlurC/giphy.gif"
-              title="Log your gains"
+              title="Log Your Gains"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">

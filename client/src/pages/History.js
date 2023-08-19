@@ -118,11 +118,12 @@ const MyWorkout = () => {
             ) : (
               <ul>
                 {userWorkouts.map((workout) => {
-                  const formattedDate = workout.date
-                    ? new Date(parseInt(workout.date)).toLocaleDateString(
-                        "en-US"
-                      )
-                    : "";
+const formattedDate = workout.date
+? new Date(parseInt(workout.date)).toLocaleDateString("en-US", {
+    timeZone: "America/los_angeles", // Replace with the appropriate timezone
+  })
+: "";
+
 
                   return (
                     <Paper

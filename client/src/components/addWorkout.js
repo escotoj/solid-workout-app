@@ -21,6 +21,7 @@ const WorkoutForm = ({ workoutId }) => {
   const [expirationDate, setExpirationDate] = useState("");
 
   const [noteText, setNoteText] = useState("");
+  const [displayedDate, setDisplayedDate] = useState("");
 
   const [createWorkout, { error }] = useMutation(ADD_WORKOUT);
 
@@ -46,6 +47,7 @@ const WorkoutForm = ({ workoutId }) => {
       setExpirationDate("");
       console.log(data);
       setWorkoutAdded(true);
+      setDisplayedDate("");
     } catch (err) {
       console.error(err);
     }
@@ -60,20 +62,25 @@ const WorkoutForm = ({ workoutId }) => {
     } else if (name === "workoutTitle") {
       setWorkoutTitle(value);
     } else if (name === "expirationDate") {
-      setExpirationDate(value);
+      const currentDate = new Date();
+      const options = { timeZone: "America/Los_Angeles" }; 
+      const formattedDate = currentDate.toLocaleString("en-US", options);
+      setDisplayedDate(value);
+      setExpirationDate(formattedDate);
     } else if (name === "noteText") {
       setNoteText(value);
     }
   };
 
-  const formattedDate = (date) => {
-    const formatted = new Date(date);
-    const mm = String(formatted.getMonth() + 1).padStart(2, "0");
-    const dd = String(formatted.getDate() + 1).padStart(2, "0");
-    const yy = String(formatted.getFullYear()).slice(-2);
 
-    return `${mm}/${dd}/${yy}`;
-  };
+  // const formattedDate = (date) => {
+  //   const formatted = new Date(date);
+  //   const mm = String(formatted.getMonth() + 1).padStart(2, "0");
+  //   const dd = String(formatted.getDate() + 1).padStart(2, "0");
+  //   const yy = String(formatted.getFullYear()).slice(-2);
+
+  //   return `${mm}/${dd}/${yy}`;
+  // };
 
   return (
     <Container component="main" maxWidth="lg">
@@ -174,6 +181,10 @@ const WorkoutForm = ({ workoutId }) => {
                     onChange={handleChange}
                     style={{ marginTop: "10px" }}
                   />
+                      {displayedDate && (
+        <Typography style={{marginTop:"25px", color:'purple'}}>Selected Date: <br></br>  
+          {displayedDate}</Typography>
+    )}
                   {/* {expirationDate && (
         <p>Formatted Date: {formattedDate(expirationDate)}</p>
       )} */}
