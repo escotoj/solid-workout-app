@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, Container } from "@material-ui/core";
+import { Box, Typography, Container } from "@mui/material";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";

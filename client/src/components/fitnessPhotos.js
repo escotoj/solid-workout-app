@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Card, CardMedia, Grid, CircularProgress } from "@material-ui/core";
+import { Card, CardMedia, Grid, CircularProgress } from "@mui/material";
 
 const UnsplashFitnessGallery = () => {
   const [photoData, setPhotoData] = useState({});
@@ -55,7 +55,6 @@ const UnsplashFitnessGallery = () => {
                   t.palette.mode === "light"
                     ? t.palette.grey[50]
                     : t.palette.grey[900],
-                minWidth: "100vh",
                 boxShadow: " 3px 3px 3px #7b8782",
               }}
             />
