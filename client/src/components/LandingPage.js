@@ -5,7 +5,6 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import { makeStyles } from "@material-ui/core/styles";
 
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -14,26 +13,26 @@ import CardMedia from "@mui/material/CardMedia";
 
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
-const useStyles = makeStyles((theme) => ({
-  hero: {
-    textAlign: "center",
-    padding: theme.spacing(1),
-  },
-  content: {
-    textAlign: "center",
-    padding: theme.spacing(4),
-  },
-  button: {
-    marginTop: theme.spacing(2),
-  },
-}));
+// const useStyles = makeStyles((theme) => ({
+//   hero: {
+//     textAlign: "center",
+//     padding: theme.spacing(1),
+//   },
+//   content: {
+//     textAlign: "center",
+//     padding: theme.spacing(4),
+//   },
+//   button: {
+//     marginTop: theme.spacing(2),
+//   },
+// }));
 
 const LandingPage = () => {
-  const classes = useStyles();
+  // const classes = useStyles();
 
   return (
-    <div>
-      <Box className={classes.hero}>
+    <div style={{ textAlign: "center", padding: "24px" }}>
+      <Box style={{ padding: "8px" }}>
         <Container>
           <Grid justifyContent="center">
             <Grid item xs={12} md={12}>
@@ -64,15 +63,14 @@ const LandingPage = () => {
                 to="/exercises"
                 variant="contained"
                 color="secondary"
-                className={classes.button}
-              >
+                style={{ marginTop: "16px" }}              >
                 Get Started
               </Button>
             </Grid>
           </Grid>
         </Container>
       </Box>
-      <Container className={classes.content} maxWidth="md">
+      <Container style={{ padding: "16px" }} maxWidth="md">
         <Typography
           variant="h4"
           align="center"
