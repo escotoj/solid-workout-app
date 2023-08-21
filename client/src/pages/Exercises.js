@@ -13,7 +13,7 @@ import {
   DialogContent,
   DialogActions,
 } from "@mui/material";
-import UnsplashFitnessGallery from "../components/FitnessPhotos.js";
+import UnsplashFitnessGallery from "../components/fitnessPhotos.js";
 
 
 const Exercise = () => {
