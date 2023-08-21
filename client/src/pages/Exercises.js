@@ -13,7 +13,7 @@ import {
   DialogContent,
   DialogActions,
 } from "@mui/material";
-import UnsplashGallery from "/components/FitnessPhotos";
+import UnsplashFitnessGallery from "../components/FitnessPhotos";
 
 
 const Exercise = () => {
@@ -108,7 +108,7 @@ const Exercise = () => {
           >
             Search
           </Button>
-          <UnsplashGallery />
+          <UnsplashFitnessGallery />
           {/* <WeightsGallery/> */}
         </div>
       )}
