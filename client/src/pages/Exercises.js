@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { Box, Typography, TextField, Button, Paper } from "@material-ui/core";
+import { Box, Typography, TextField, Button, Paper } from "@mui/material";
 
 import SearchIcon from "@mui/icons-material/Search";
 
@@ -16,30 +15,8 @@ import {
 } from "@mui/material";
 import UnsplashGallery from "../components/FitnessPhotos";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    textAlign: "center",
-    padding: theme.spacing(3),
-  },
-  form: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    marginBottom: theme.spacing(2),
-  },
-  input: {
-    marginRight: theme.spacing(2),
-  },
-  submitButton: {
-    marginLeft: theme.spacing(2),
-  },
-  submittedValue: {
-    marginTop: theme.spacing(2),
-  },
-}));
 
 const Exercise = () => {
-  const classes = useStyles();
   const [exercises, setExercises] = useState([]);
   const [exerciseInput, setExerciseInput] = useState("");
   const [submitted, setSubmitted] = useState(false);
@@ -97,7 +74,7 @@ const Exercise = () => {
   };
 
   return (
-    <div className={classes.root}>
+    <div style={{ textAlign: "center", padding: "24px" }}>
       <Typography variant="h4" component="h1" gutterBottom>
         Search
       </Typography>
@@ -166,9 +143,9 @@ const Exercise = () => {
               </Paper>
 
               {exercises.map((exercise, index) => (
-                <Box key={index} sx={{ marginTop: 12 }}>
-                  <Paper>
-                    <Typography variant="h6">{exercise.name}</Typography>
+                <Box key={index} sx={{ marginTop: 2 }}>
+                  <Paper sx={{ padding: 1}}>
+                    <Typography variant="h6" sx={{ padding: 3}}>{exercise.name}</Typography>
                     <Button
                       onClick={() => handleExerciseClick(exercise)}
                       style={{
@@ -195,7 +172,6 @@ const Exercise = () => {
                   }}
                 >
                   <Button
-                    className={classes.submitButton}
                     variant="contained"
                     color="primary"
                     onClick={handleNewSearch}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Box, Typography } from "@material-ui/core";
+import { Box, Typography } from "@mui/material";
 
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 import WorkoutForm from "../components/addWorkout";
