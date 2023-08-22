@@ -6,14 +6,14 @@ const UnsplashFitnessGallery = () => {
   const [loading, setLoading] = useState(true);
 
   const fetchFitnessPhoto = async () => {
-    const accessKey = process.env.REACT_APP_UNSPLASH_KEY;
+    // const accessKey = process.env.REACT_APP_UNSPLASH_KEY;
 
     try {
       const response = await fetch(
         "https://api.unsplash.com/search/photos/?query=workout",
         {
           headers: {
-            Authorization: `Client-ID ${accessKey}`,
+            Authorization: `Client-ID ${process.env.REACT_APP_UNSPLASH_KEY}`,
           },
         }
       );
