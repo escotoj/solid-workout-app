@@ -31,7 +31,7 @@ const Exercise = () => {
     }
   }, [submitted, exerciseInput]);
 
-  const accessKey = process.env.REACT_APP_EXERCISES_KEY;
+  const accessKey = 'aNt6yjMoFkLXGlw/1IEuiw==mJbbhiQt0Znr1ixr';
 
   const fetchExercises = () => {
     fetch(`https://api.api-ninjas.com/v1/exercises?muscle=${exerciseInput}`, {
