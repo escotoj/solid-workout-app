@@ -25,7 +25,7 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
   app.use(
     session({
-      secret: process.env.JWT_SECRET,
+      secret: 'secret',
       resave: false,
       saveUninitialized: true,
       store: MongoStore.create({
