@@ -82,7 +82,7 @@ const Exercise = () => {
         <SearchIcon fontSize="large" style={{ color: "red" }} />
       </Box>
       <Typography variant="h6" component="h1" gutterBottom>
-        Search by targeted muscles (forearm, chest, calves, etc.), each search
+        Search by targeted muscles (forearms, chest, calves, etc.), each search
         renders the top 10 exercises with details and instructions.
       </Typography>
 
